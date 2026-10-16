@@ -21,6 +21,7 @@ jobs:
     timeout-minutes: 20
     env:
       SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1"
     steps:
       - uses: actions/checkout@v4
 
@@ -36,6 +37,7 @@ jobs:
             prompts/ceo-dongu.md dosyasını oku ve oradaki iş döngüsünü eksiksiz uygula.
             Tarih/saat için `date -u` kullan; İstanbul saati = UTC+3.
             Döngü HER ZAMAN #ceo-rapor'a rapor göndererek biter. Bir adım hata verirse atla, devam et ve hatayı raporda yaz.
+            Alt-agent'ları ASLA arka planda başlatma; her birini sonucunu bekleyerek sırayla çağır. Bu süreç tur bitince kapanır, sonradan bildirim gelmez.
           claude_args: >-
             --model sonnet
             --max-turns 40
