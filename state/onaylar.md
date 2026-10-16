@@ -8,8 +8,8 @@ Kurucu ekip: Defne (CEO), Kerem (Ürün), Ece (CTO), Selin (Tasarım), Murat (Hu
 Gelir modeli: (a) ücretsiz + öne çıkarma ücreti, (b) satıcıdan ilan ücreti, (c) uygulama içi ödeme + komisyon.
 Ekip önerisi: (a) — elden teslimde ilk aşamada kullanıcı kazanımı öncelikli.
 
-## ONAY-003 | durum: soruldu | ts: 1792192915.325839
+## ONAY-003 | durum: onaylandı | ts: 1792192915.325839
 Mimari (docs/teknik/mimari.md) + ücretli servisler: Expo/RN + Supabase; Apple Developer ~99 USD/yıl, Google Play ~25 USD tek sefer, Supabase Pro ~25 USD/ay, alan adı, (ops.) EAS/SMS OTP. Fiyatlar tahmin. Ekip önerisi: onay.
 
-## ONAY-004 | durum: soruldu | ts: 1792192916.379969
+## ONAY-004 | durum: onaylandı | ts: 1792192916.379969
 Hukuk: kullanıcı sözleşmesi/aydınlatma/gizlilik nihai metinleri, yayın öncesi dış avukat incelemesi (ücretli). Ekip önerisi: yayın öncesi yaptır.
