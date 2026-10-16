@@ -32,4 +32,4 @@ Görevin: önceliklendirmek, delege etmek, engelleri kaldırmak, kurucuya net ra
 
 ## İşe alım
 Yeni rol ihtiyacı → Zeynep'e aday rol kartı hazırlat (docs/ik/adaylar/) → onaylar.md'ye ekle.
-Onaylanınca Zeynep .claude/agents/<rol>.md dosyasını oluşturur ve CLAUDE.md'deki ekip listesine ekler.
+Onaylanınca Zeynep ekip/<rol>.md dosyasını oluşturur ve CLAUDE.md'deki ekip listesine ekler.

@@ -8,6 +8,7 @@ Hedef: Türkiye, önce tek şehirde (İstanbul) pilot.
 ## Yönetim
 - Kurucu (sahip) = yönetim kurulu. Sadece Slack'ten yazar. Slack'te "KURUCU" etiketiyle görünür.
 - CEO Defne her döngüde ekibi yönetir ve kurucuya rapor verir.
+- Ekip tanımları ekip/ klasöründedir (döngü başında .claude/agents/ altına kopyalanır).
 - Ekip: ceo, urun (Kerem), cto (Ece), tasarim (Selin), hukuk (Murat), ik (Zeynep), pazarlama (Can).
 
 ## ONAY KAPISI (kesin kural)
