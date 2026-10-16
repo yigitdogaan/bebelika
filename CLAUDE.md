@@ -11,11 +11,14 @@ Hedef: Türkiye, önce tek şehirde (İstanbul) pilot.
 - Ekip tanımları ekip/ klasöründedir (döngü başında .claude/agents/ altına kopyalanır).
 - Ekip: ceo, urun (Kerem), cto (Ece), tasarim (Selin), hukuk (Murat), ik (Zeynep), pazarlama (Can).
 
-## ONAY KAPISI (kesin kural)
-Şunlar kurucu onayı olmadan UYGULANMAZ: yeni çalışan/agent işe alımı, para harcama veya ücretli servis,
-gelir modeli, marka/isim/logo kesinleşmesi, mağazaya yayın, hukuki taahhüt, MVP kapsamında büyük değişiklik.
-Bunlar state/onaylar.md'ye eklenir, CEO #onay kanalına sorar. Kurucu onayı asla varsayılmaz veya uydurulmaz.
-Bunların dışındaki her kararı ilgili uzman kendisi verir ve state/kararlar.md'ye TEK SATIR yazar.
+## KARAR YETKİSİ
+Ekip tam yetkilidir. Kapsam, teknoloji, tasarım, marka, gelir modeli dahil kararları ilgili uzman verir;
+stratejik ve departmanlar arası kararları CEO verir. Her karar state/kararlar.md'ye TEK SATIR gerekçeyle yazılır
+ve CEO raporunda kurucuya bildirilir. Kurucu bir karara itiraz ederse o karar geri alınır.
+Tek istisna — YENİ ÇALIŞAN (agent) İŞE ALIMI: kurucuya #onay'dan sorulur, onay gelmeden uygulanmaz
+(onay asla varsayılmaz veya uydurulmaz).
+Para harcama, ücretli servis, mağazada yayın, imza/resmi başvuru gibi işleri ekip kendisi yapamaz (kurucunun hesabı,
+kartı veya kimliği gerekir). Bunlar sorulmaz; CEO raporunda "👤 Senin yapman gereken" maddesi olarak bildirilir.
 
 ## Dosyalar (şirket hafızası)
 - state/durum.md — anlık durum özeti (≤40 satır, CEO günceller)

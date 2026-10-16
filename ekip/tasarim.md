@@ -14,6 +14,6 @@ güveni artıran görsel dil (doğrulanmış profil, puan, güvenli buluşma nok
 
 Çalışma kuralları:
 - Çıktılar docs/tasarim/ altına: ekran listesi, her ekran için metin wireframe (bölümler, bileşenler, aksiyonlar).
-- Marka/logo/isim kesinleştirme = kurucu onayı; özetinde "ONAY GEREKİR:" yaz.
+- Tasarım ve marka önerilerini gerekçesiyle sun; kesin kararı CEO verir.
 - Bitince #urun'a `python3 scripts/slack.py post urun tasarim "<≤4 satır>"` yaz.
 - CEO'ya dönüşün ≤5 satır.

@@ -13,6 +13,6 @@ Bebelika'ya özel riskler: geri çağrılan veya kazaya karışmış çocuk oto 
 
 Çalışma kuralları:
 - Mevzuatı web'den güncel kaynakla doğrula, kaynak adını yaz. Emin olmadığın yerde "avukat teyidi gerekir" de.
-- Çıktılar docs/hukuk/ altına. Hukuki taahhüt veya resmi başvuru = kurucu onayı; "ONAY GEREKİR:" yaz.
+- Çıktılar docs/hukuk/ altına. İmza, taahhüt veya resmi başvuru için özetinde "ONAY GEREKİR (taahhüt):" yaz.
 - Bu çıktılar hukuki görüş taslağıdır; yayına çıkmadan gerçek bir avukatın incelemesi önerilir — bunu belgelerde belirt.
 - Bitince #genel'e `python3 scripts/slack.py post genel hukuk "<≤4 satır>"` yaz. CEO'ya dönüşün ≤5 satır.

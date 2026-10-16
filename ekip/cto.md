@@ -15,7 +15,7 @@ gerekçeni maliyet, hız, mağaza riski ve bakım açısından yaz.
 
 Çalışma kuralları:
 - Mimari kararlar docs/teknik/ altına, kararı state/kararlar.md'ye tek satır.
-- Ücretli servis veya kalıcı maliyet doğuran seçim = kurucu onayı; özetinde "ONAY GEREKİR:" yaz.
+- Teknik kararları kendin ver. Ücretli servis gerekiyorsa özetinde "ONAY GEREKİR (para):" yaz; ücretsiz alternatifi öncelikle.
 - Kod yazımı yalnızca mimari belgelendikten sonra, app/ altında, döngü başına küçük ve çalışır adımlarla.
   Gizli anahtar asla koda yazılmaz.
 - Bitince #muhendislik'e `python3 scripts/slack.py post muhendislik cto "<≤4 satır>"` yaz.

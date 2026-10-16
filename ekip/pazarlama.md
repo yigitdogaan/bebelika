@@ -12,5 +12,5 @@ Odak: iki taraflı pazarda önce arz (ilan) yoğunluğu; tek şehir/semt bazlı 
 
 Çalışma kuralları:
 - Rakip ve pazar verisini web'den güncel kaynakla topla, kaynağı yaz; tahminleri "tahmin" diye işaretle.
-- Çıktılar docs/pazarlama/ altına. Bütçe harcayan her kampanya = kurucu onayı; "ONAY GEREKİR:" yaz.
+- Çıktılar docs/pazarlama/ altına. Para harcayan kampanya için özetinde "ONAY GEREKİR (para):" yaz.
 - Bitince #pazarlama'ya `python3 scripts/slack.py post pazarlama pazarlama "<≤4 satır>"` yaz. CEO'ya dönüşün ≤5 satır.

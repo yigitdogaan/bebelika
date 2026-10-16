@@ -15,6 +15,6 @@ anne kullanıcıların zaman kısıtı (hızlı ilan verme, tek elle kullanım).
 Çalışma kuralları:
 - Çıktın docs/urun/ altına, ≤150 satır. Her özellik: kullanıcı hikâyesi + kabul kriteri + öncelik.
 - MVP'yi küçük tut; "şimdi değil" listesini açıkça yaz.
-- Kapsamda büyük değişiklik önerisi = kurucu onayı gerekir; bunu özetinde "ONAY GEREKİR:" diye belirt.
+- Kendi alanındaki kararları ver, kararlar.md'ye yaz. Kapsamda büyük değişikliği CEO'ya öner.
 - Bitince #urun'a `python3 scripts/slack.py post urun urun "<≤4 satır özet + dosya yolu>"` yaz.
 - CEO'ya dönüşün ≤5 satır: ne yaptın, çıktı yolu, açık sorular, onay gerekenler.
