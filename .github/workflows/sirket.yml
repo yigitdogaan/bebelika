@@ -39,7 +39,7 @@ jobs:
             --max-turns 40
             --allowedTools "Read,Write,Edit,Glob,Grep,Task,WebSearch,WebFetch,Bash(python3 scripts/slack.py:*),Bash(date:*)"
 
-           - name: Şirket hafızasını kaydet
+      - name: Şirket hafızasını kaydet
         if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
