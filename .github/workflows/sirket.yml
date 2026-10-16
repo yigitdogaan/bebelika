@@ -1,0 +1,48 @@
+name: Bebelika Şirket Döngüsü
+
+on:
+  schedule:
+    - cron: "0 6-18/2 * * *"   # İstanbul 09:00-21:00, 2 saatte bir
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: sirket-dongusu
+  cancel-in-progress: false
+
+jobs:
+  dongu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ekibi işe başlat
+        run: mkdir -p .claude/agents && cp ekip/*.md .claude/agents/
+
+      - name: CEO döngüsü
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            prompts/ceo-dongu.md dosyasını oku ve oradaki iş döngüsünü eksiksiz uygula.
+            Tarih/saat için `date -u` kullan; İstanbul saati = UTC+3.
+          claude_args: >-
+            --model sonnet
+            --max-turns 40
+            --allowedTools "Read,Write,Edit,Glob,Grep,Task,WebSearch,WebFetch,Bash(python3 scripts/slack.py:*),Bash(date:*)"
+
+      - name: Şirket hafızasını kaydet
+        if: always()
+        run: |
+          git config user.name "bebelika-ofis"
+          git config user.email "ofis@bebelika.local"
+          git add -A -- . ':!.claude'
+          git diff --cached --quiet || (git commit -m "Döngü $(TZ=Europe/Istanbul date '+%d.%m.%Y %H:%M')" && git push)
