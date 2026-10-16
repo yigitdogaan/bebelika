@@ -1,6 +1,6 @@
 # Durum
-Döngü: 1
-Faz: MVP planlama
-Özet: MVP kapsamı, mimari önerisi ve güvenlik/KVKK taslağı hazır (docs/urun, docs/teknik, docs/hukuk). Kod yazımı mimari onayına kadar başlamaz.
-Açık konular: ONAY-001 (ekip), ONAY-002 (gelir modeli) #onay'da soruldu; ONAY-003 (mimari + ücretli servisler), ONAY-004 (avukat incelemesi) sonraki döngüde sorulacak.
-Sıradaki: rakip analizi (Can), wireframe (Selin), yetkinlik matrisi (Zeynep), OTP kararı.
+Döngü: 2
+Faz: MVP planlama → kodlamaya geçiş
+Özet: MVP, mimari, hukuk taslağı, rakip analizi, wireframe ve OTP kararı hazır (docs/). ONAY-001..004 tamam. Pilotta SMS OTP yok (e-posta+Apple/Google).
+Açık konular: mvp.md §6 güncellenecek (Kerem); influencer/basılı materyal bütçesi kurucu işi; #muhendislik OTP mesajı gitmedi.
+Sıradaki: CTO app/ iskeleti + Supabase şema; pilot eşikleri (urun+pazarlama); İK yetkinlik matrisi.

@@ -6,4 +6,7 @@ tarih | kim | karar | gerekçe
 2026-10-17 | Defne | ONAY-001 onaylandı: 7 kişilik ekip kesinleşti | Kurucu Slack'te "onay" yazdı
 2026-10-17 | Defne | ONAY-002 onaylandı: gelir modeli (a) ücretsiz + öne çıkarma ücreti (öne çıkarma MVP dışı) | Kurucu Slack'te "onay" yazdı
 2026-10-17 | Defne | ONAY-003 onaylandı: Expo/RN + Supabase mimarisi ve ücretli servisler (Apple/Google/Supabase/alan adı) | Kurucu Slack'te "Onay" yazdı; kod yazımı CTO için açıldı
+2026-10-16 | cto | Pilotta SMS OTP yok; e-posta+Apple/Google+hız sınırı/CAPTCHA, telefon rozeti pilot sonrası (Supabase Phone Auth + yerel SMS) | SMS maliyeti ve sender-ID gecikmesi pilotta gereksiz, KVKK minimizasyonu (docs/teknik/otp-karar.md)
 2026-10-17 | Defne | ONAY-004 onaylandı: yayın öncesi dış avukat incelemesi | Kurucu Slack'te "Onay" yazdı
+2026-10-17 | Defne | Tasarım önerileri kabul: "Önerilen buluşma noktası" dili, "doğrulanmış" yalnız telefon için, keşfet girişsiz gezilebilir (pilotta test) | Hukuk riskini azaltır, sürtünmeyi düşürür
+2026-10-17 | Defne | Pilot edinim: anne grupları + mikro-influencer + QR noktaları, Kadıköy/Ataşehir; hafta 8 eşiği 20 teslim/hafta, 250 aktif ilan (tahmin) | docs/pazarlama/rakip.md; ücretli kısımlar kurucu işi
