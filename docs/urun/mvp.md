@@ -23,7 +23,7 @@ Sahip: Kerem (Ürün) | Tarih: 2026-10-16 | Güncelleme: 2026-10-17 (ONAY-002) |
 Not: Aynı kişi hem alıcı hem satıcı olabilir; tek hesap, iki rol.
 
 ## 3. Ana akışlar
-1. Onboarding: telefon doğrulama, konum izni, ilçe seçimi; 3 adımda bitiş.
+1. Onboarding: e-posta veya Apple/Google girişi, konum izni, ilçe seçimi; 3 adımda bitiş.
 2. İlan verme: foto, kategori, fiyat, durum; hedef <60 sn.
 3. Keşif: yakınlığa göre liste, filtre, arama.
 4. Mesajlaşma: uygulama içi; telefon paylaşımı zorunlu değil.
@@ -35,12 +35,14 @@ Not: Aynı kişi hem alıcı hem satıcı olabilir; tek hesap, iki rol.
 ## 4. MVP İÇİ özellikler
 Öncelik: P0 = pilotsuz olmaz, P1 = pilot ilk ay, P2 = mümkünse. (Kaba sıralama; RICE skoru CTO eforu gelince hesaplanacak.)
 
-### F1 Telefonla kayıt ve doğrulama (P0)
+### F1 Kayıt ve giriş: e-posta + Apple/Google (P0)
 Hikâye: Anne olarak hızlıca kayıt olup güvenilir bir profille başlamak isterim.
 Kabul:
-- SMS kodu ile giriş; ad, ilçe, profil fotoğrafı (opsiyonel).
+- E-posta (doğrulamalı) veya Sign in with Apple / Google ile giriş; SMS kodu yok (otp-karar.md). Ad, ilçe, profil fotoğrafı (opsiyonel); 18+ beyanı.
 - Kayıt ≤3 ekran; ana butonlar tek elle erişilebilir.
-- Doğrulanmamış kullanıcı ilan veremez/mesaj atamaz.
+- E-postasını doğrulamamış kullanıcı ilan veremez/mesaj atamaz.
+- Yeni hesap sınırları (ilk 24 saatte ≤3 ilan, günlük mesaj başlatma sınırı) uygulanır.
+- Telefon doğrulama rozeti pilot sonrası (isteğe bağlı); MVP'de "Telefonu doğrulandı" ifadesi kullanılmaz.
 
 ### F2 Hızlı ilan verme (P0)
 Hikâye: Satıcı olarak bebek kucağımdayken 1 dakikada ilan vermek isterim.
@@ -111,7 +113,7 @@ Kabul: Favori ekleme; fiyat düşünce ve "verildi" bildirimi.
 
 ## 6. Açık kararlar
 - Gelir modeli: KAPANDI, ONAY-002 (a) ücretsiz + öne çıkarma ücreti. Etki: MVP'de ödeme akışı/komisyon yok; ilan şeması ileride "öne çıkarma" alanı eklenebilir olmalı (CTO'ya not). Öne çıkarma pilot sonrası; o zaman vergi/ödeme mevzuatı için Hukuk görüşü ve kurucu onayı gerekir. Komisyon/ilan ücreti (b/c) eklenmek istenirse kapsam değişir, ayrıca onay.
-- Tutarsızlık: F1 "SMS kodu" diyor, CTO kararı pilotta SMS OTP yok (e-posta+Apple/Google; otp-karar.md). F1 kabul kriteri bu karara göre revize edilecek (telefon rozeti pilot sonrası).
+- Giriş yöntemi: KAPANDI, pilotta SMS OTP yok; e-posta+Apple/Google (otp-karar.md). Telefon rozeti pilot sonrası.
 - Teknik platform ve mimari: CTO (Ece).
 - Marka/isim/logo: kurucu onayı; bu dokümanda varsayılmadı.
 - Yasal metinler, KVKK, yasaklı ürün listesi: Hukuk (Murat).

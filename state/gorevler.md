@@ -12,7 +12,11 @@ Durumlar: [ ] bekliyor · [~] sürüyor · [x] bitti · [!] engelli
 [x] P2 | urun | Pilot başarı eşikleri → docs/urun/pilot-esikler.md
 [x] P2 | urun | mvp.md §6 güncellendi
 [x] P3 | ik | Ekip yetkinlik matrisi → docs/ik/matris.md
+[x] P1 | cto | İlan CRUD + fotoğraf + keşfet (app/) — npm install/tsc DOĞRULANMADI
+[x] P2 | urun | mvp.md F1 SMS kodu düzeltildi (akislar.md de güncellendi)
+[x] P2 | hukuk | Moderasyon süreci taslağı → docs/hukuk/moderasyon.md
 [ ] P3 | hukuk | Dış avukat incelemesi paketi (yayın öncesi) | ONAY-004 ✔
-[ ] P1 | cto | İlan CRUD + fotoğraf yükleme + keşfet ekranı (app/) | iskelet ✔
-[ ] P2 | urun | mvp.md F1'deki 'SMS kodu'nu e-posta+Apple/Google'a düzelt | -
-[ ] P2 | cto+hukuk | Şikâyet/moderasyon (F8) pilot süreci taslağı | -
+[ ] P1 | cto | npm install + tsc + expo install --fix doğrulaması; migration'ları test Supabase'te dene | kurucu Supabase hesabı
+[ ] P2 | cto | Şikâyet/engelleme tabloları + ekranı (moderasyon.md veri alanları)
+[ ] P2 | cto | Taslak otomatik kayıt, konum rıza ekranı, profil ilçesi
+[ ] P2 | tasarim | akislar.md'yi ilan/keşfet ekranlarıyla uyumla

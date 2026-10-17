@@ -14,3 +14,5 @@ tarih | kim | karar | gerekçe
 2026-10-17 | Kerem | mvp.md §6 ONAY-002 (a) ile güncellendi; pilot eşikleri docs/urun/pilot-esikler.md (8 hafta, hafta 8: 20 teslim/hafta, 250 ilan; tahmin) | Gelir kararı kapandı; eşikler rakip.md §5 ile uyumlu, pilotta kalibre edilecek
 2026-10-17 | Defne | Pilot karar kuralında en az İKİ güven metriği yeter | Pilot hacmi küçük, üç metrik gürültülü olur
 2026-10-17 | Defne | Güven&Moderasyon Uzmanı işe alımı şimdilik önerilmeyecek; F8 pilotta Kerem+Murat'ta, tetikleyicide (matris.md) yeniden bakılır | Her agent limit artırır; pilot hacmi düşük
+2026-10-17 | Defne | moderasyon.md pilot iç süreç taslağı olarak kabul; Topluluk Kuralları yayını ONAY-004 dış avukat incelemesine bağlı | Pilot ölçeğine uygun, hukuki süreler teyitsiz
+2026-10-17 | Defne | Pilotta giriş e-posta+Apple/Google, telefon rozeti pilot sonrası (mvp.md/akislar.md) | otp-karar.md ile tutarlılık

@@ -6,15 +6,15 @@ Girdi: docs/urun/mvp.md (F1-F9), docs/hukuk/politika.md. Marka/isim/logo/renk ku
 - Başparmak bölgesi: ana aksiyon ekranın alt 1/3'ünde, sabit alt çubukta. Gerekçe: A2, bebek kucakta tek el.
 - Dokunma hedefi ≥48x48 dp (iOS ≥44 pt), hedefler arası ≥8 dp. Yorgun/titrek el hatasını azaltır.
 - Üst köşe aksiyonu yok; geri/kapat alt çubukta veya kenardan kaydırma ile de çalışır.
-- Güven dili: "Telefonu doğrulandı", puan, "Yeni üye" rozeti. "Doğrulanmış satıcı" rozeti MVP DIŞI, kullanılmaz.
+- Güven dili: puan, "Yeni üye" rozeti ("Telefonu doğrulandı" rozeti pilot sonrası). "Doğrulanmış satıcı" rozeti MVP DIŞI, kullanılmaz.
 - Hukuk dili: "güvenli nokta" GARANTİ gibi okunmasın; arayüzde "Önerilen buluşma noktası" yazılır (politika bölüm 5).
 - Sıcak ama sade: tek vurgu rengi, bol boşluk, ekran başına tek ana buton, kısa cümleler.
 
 ## 2. Ekran listesi
 | No | Ekran | Özellik |
 |---|---|---|
-| S1 | Hoş geldin + telefon girişi | F1 |
-| S2 | SMS kodu | F1 |
+| S1 | Hoş geldin + e-posta/Apple/Google girişi | F1 |
+| S2 | E-posta doğrulama | F1 |
 | S3 | Profil: ad, ilçe, foto(ops.) + konum izni | F1, F3 |
 | S4 | Keşfet (liste) | F3 |
 | S5 | Harita görünümü | F3 |
@@ -33,10 +33,10 @@ Gezinme: alt sekme çubuğu 4 sekme: Keşfet, İlan Ver (ortada belirgin), Mesaj
 
 ## 3. Onboarding (F1) - 3 ekran
 Giriş yapmadan Keşfet salt okunur görülebilir (öneri; hızlı değer gösterir). Mesaj/ilan anında S1'e yönlenir (kabul: doğrulanmamış kullanıcı yapamaz).
-**S1 Telefon:** başlık "Yakınındaki bebek eşyaları"; telefon alanı (sayısal klavye); alt: [Kod gönder] tam genişlik; altında 18+ onayı ve ayrı bağlantılar: Aydınlatma Metni, Kullanım Koşulları (onay kutusu metinden ayrı; açık rıza ayrı sunulur, Hukuk 6.4).
-**S2 SMS:** 6 haneli kod, otomatik doldurma; [Doğrula]; "Kodu tekrar gönder (süre sayacı)"; yanlış kodda satır içi hata.
+**S1 Giriş:** başlık "Yakınındaki bebek eşyaları"; [Apple ile devam et] [Google ile devam et] tam genişlik; altında e-posta alanı + [Devam]; altında 18+ onayı ve ayrı bağlantılar: Aydınlatma Metni, Kullanım Koşulları (onay kutusu metinden ayrı; açık rıza ayrı sunulur, Hukuk 6.4).
+**S2 E-posta doğrulama:** (yalnız e-posta ile girişte) "E-postanı doğrula" bilgisi, [E-posta uygulamasını aç]; "Tekrar gönder (süre sayacı)"; hata satır içi. Apple/Google girişinde bu ekran atlanır.
 **S3 Profil:** ad (zorunlu), ilçe seçici (İstanbul ilçe listesi, arama), foto (atla); konum izni ön bilgi kartı: "Yakınındaki ilanları göstermek için, yalnız uygulama açıkken. Tam adresin kimseyle paylaşılmaz." [Konumu kullan] / [İlçemi seçeceğim]. İzin reddi hata değildir: ilçe ile devam.
-Erişilebilirlik: klavye açıkken buton klavyenin üstünde yapışık; hata metni renge ek ikon+metin; SMS kodu ekran okuyucuya haneler halinde okunur.
+Erişilebilirlik: klavye açıkken buton klavyenin üstünde yapışık; hata metni renge ek ikon+metin; doğrulama ekranı durumu ekran okuyucuya açıkça okunur.
 
 ## 4. Keşfet: liste ve harita (F3)
 **S4 Liste** (üstten alta):
@@ -51,7 +51,7 @@ Boş sonuç: illüstrasyon + "Yakında ilan yok" + [Mesafeyi genişlet] ana buto
 Yasaklı kategori (mama, emzik vb.) listede yer almaz.
 
 ## 5. İlan detay (S7) (F3, F5, F8)
-Üstten alta: foto galerisi (kaydır, sayaç "2/5"); fiyat + durum etiketi; başlık; "~1,2 km, Kadıköy" ; satıcı kartı (ad, ilçe, puan, işlem sayısı, "Telefonu doğrulandı"); açıklama; ürün özellikleri (kategori, yaş aralığı; kategoriye göre beyanlar: ör. oto koltuğunda "Kazasız" beyanı, üretim tarihi, kullanım ömrü bilgisi).
+Üstten alta: foto galerisi (kaydır, sayaç "2/5"); fiyat + durum etiketi; başlık; "~1,2 km, Kadıköy" ; satıcı kartı (ad, ilçe, puan, işlem sayısı); açıklama; ürün özellikleri (kategori, yaş aralığı; kategoriye göre beyanlar: ör. oto koltuğunda "Kazasız" beyanı, üretim tarihi, kullanım ömrü bilgisi).
 **Güvenlik şeridi (kaydırmada kaybolmaz, satıcı kartının altı):** "Ödemeyi ve ürün kontrolünü buluşmada yap. Ön ödeme/IBAN isteyenlere güvenme." [Güvenlik ipuçları].
 Oto koltuğu, beşik gibi riskli kategoride ek uyarı kutusu: "Etiketi ve geri çağırma durumunu teslimde kontrol et" + resmi kaynak bağlantısı (Hukuk 3.2/3.3).
 Üst sağ "..." menüsü: [İlanı şikâyet et], [Güvensiz ürün bildir] (ayrı, görünür satır olarak da ilan sonunda).
@@ -82,13 +82,13 @@ Erişilebilirlik: yeni mesaj canlı bölge olarak okunur; çipler odaklanabilir;
 3. Alt: [Teklifi gönder]. Not: "Tam adresini paylaşman gerekmez."
 Sohbette teklif kartı: saat, nokta, [Kabul et] [Başka saat öner] [Reddet]. Kabulde kart "Buluşma ayarlandı" olur, iki tarafa hatırlatma bildirimi (buluşmadan önce; süre ürün kararı).
 **Güvenlik ipuçları kartı (kabulde ve buluşma günü bildirimiyle gösterilir):** kalabalık, aydınlık, kamuya açık yer; gündüz; ev adresi paylaşma; yanında biriyle git; ürünü ve güvenlik etiketini teslimde kontrol et; ödeme buluşmada. Altında [Sorun var, şikâyet et]. Kart tek ekran, madde başına ikon+kısa cümle, "Anladım" butonu.
-Rozet: buluşma kartında "Önerilen nokta" rozeti; "Doğrulanmış" kelimesi yalnız telefon doğrulaması için.
+Rozet: buluşma kartında "Önerilen nokta" rozeti; "Doğrulanmış" kelimesi pilotta kullanılmaz (telefon rozeti pilot sonrası).
 MVP dışı: canlı konum / "buluşmaya gidiyorum" paylaşımı (mvp.md bölüm 5).
 
 ## 9. Teslim onayı ve puanlama (F6, F7)
 **S14 Teslim onayı:** buluşma saatinden sonra push + sohbette kart: "Teslim edildi mi?" iki büyük buton: [Evet, teslim edildi] [Buluşma olmadı]. Tek taraf onayladıysa durum satırı "Karşı tarafın onayı bekleniyor"; 48 saat sonra hatırlatma. İki onayda ilan "Verildi" olur. "Buluşma olmadı": neden çipleri (gelmedi, vazgeçti, ürün uygun değildi, güvensiz hissettim) -> ilan yeniden aktif; "güvensiz hissettim" seçilirse şikâyet sayfası önerilir.
 **S15 Puanlama (teslim sonrası):** 5 büyük yıldız (≥48 dp, yıldıza ek sayı etiketi), etiketler (Zamanında geldi, Ürün tarife uygun, Nazikti), [Gönder]; atlanabilir. Metin: "Puanlar ikiniz de verince veya 7 gün sonra görünür." 
-**S16 Profil:** ad, ilçe, "Telefonu doğrulandı", ortalama + işlem sayısı; az işlemde "Yeni üye" rozeti (eşik pilotta); aktif ilanlar; sekme Aldıklarım/Sattıklarım; ayarlar: bildirimler, konum izni, hesabı ve verileri sil (KVKK/mağaza gereği), engellenenler.
+**S16 Profil:** ad, ilçe, ortalama + işlem sayısı; az işlemde "Yeni üye" rozeti (eşik pilotta); aktif ilanlar; sekme Aldıklarım/Sattıklarım; ayarlar: bildirimler, konum izni, hesabı ve verileri sil (KVKK/mağaza gereği), engellenenler.
 
 ## 10. Şikâyet ve engelleme (F8) - S17
 Girişler: ilan menüsü, sohbet menüsü, profil menüsü, teslim sonrası. Alt sayfa: nesne (ilan/kullanıcı) + kategori seçimi tek dokunuş: Yasaklı/güvensiz ürün, Dolandırıcılık (IBAN/ön ödeme), Uygunsuz foto (çocuk görüntüsü dahil), Taciz, Sahte ilan, Diğer. İsteğe bağlı not. [Gönder] + [Ayrıca engelle] anahtarı. Sonuç: "Bildirimin alındı. Teşekkürler." (süre sözü verilmez; 24 saat SLA iç hedef, kullanıcıya taahhüt yazılmaz).
