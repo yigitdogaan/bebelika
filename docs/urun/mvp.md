@@ -1,10 +1,10 @@
 # Bebelika MVP Kapsamı (v0.1)
-Sahip: Kerem (Ürün) | Tarih: 2026-10-16 | Durum: taslak; kurucu onayına bağlı kısımlar bölüm 6'da
+Sahip: Kerem (Ürün) | Tarih: 2026-10-16 | Güncelleme: 2026-10-17 (ONAY-002) | Durum: taslak; açık kararlar bölüm 6'da
 
 ## 1. Çerçeve ve varsayımlar
 - Model: SADECE ELDEN TESLİM. Kargo, kargo takibi, adrese gönderim yok.
 - Pilot: yalnız İstanbul. Diğer şehirler MVP dışı.
-- Gelir modeli ONAY-002 bekliyor: MVP'de ödeme/komisyon/ilan ücreti YOK; ürün ücretsiz kabul edilir. Bağlı kararlar açık (bölüm 6).
+- Gelir modeli ONAY-002 (a) ONAYLANDI: ürün ücretsiz; gelir sonradan "öne çıkarma" ücretiyle. MVP'de ödeme/komisyon/ilan ücreti/öne çıkarma YOK.
 - Varsayımlar (doğrulanmadı, pilotta test edilecek):
   - A1: Platform/teknoloji seçimi CTO kararıdır, burada kapsam dışı.
   - A2: Birincil kullanıcı anne; zamanı kısıtlı, çoğunlukla tek elle, bebek kucakta kullanır.
@@ -100,8 +100,8 @@ Kabul: Favori ekleme; fiyat düşünce ve "verildi" bildirimi.
 
 ## 5. "ŞİMDİ DEĞİL" listesi (MVP dışı)
 - Kargo, kurye, adrese teslim (modelle çelişir).
-- Uygulama içi ödeme, emanet (escrow), komisyon (ONAY-002'ye bağlı).
-- Öne çıkarma, reklam, abonelik, ilan ücreti (ONAY-002'ye bağlı).
+- Uygulama içi ödeme, emanet (escrow), komisyon (ONAY-002 (a): planlanmıyor).
+- Öne çıkarma (onaylı gelir kaynağı, pilot sonrası; eşik: pilot-esikler.md karar kuralı), reklam, abonelik, ilan ücreti.
 - İstanbul dışı şehirler; çoklu dil.
 - Kimlik/e-Devlet doğrulama, "doğrulanmış satıcı" rozeti (pilot verisine göre).
 - Canlı konum paylaşımı, "buluşmaya gidiyorum" güvenlik paylaşımı.
@@ -110,15 +110,16 @@ Kabul: Favori ekleme; fiyat düşünce ve "verildi" bildirimi.
 - Web sürümü, bebek dışı kategoriler, mağaza/esnaf hesapları.
 
 ## 6. Açık kararlar
-- Gelir modeli (a/b/c): ekip önerisi (a); kurucu kararı bekliyor (ONAY-002). Seçim ödeme akışını, öne çıkarma arayüzünü, ilan ücretini ve hukuki kapsamı (vergi, ödeme mevzuatı) belirler. (c) seçilirse kapsam BÜYÜK değişir, ayrıca onay gerekir.
+- Gelir modeli: KAPANDI, ONAY-002 (a) ücretsiz + öne çıkarma ücreti. Etki: MVP'de ödeme akışı/komisyon yok; ilan şeması ileride "öne çıkarma" alanı eklenebilir olmalı (CTO'ya not). Öne çıkarma pilot sonrası; o zaman vergi/ödeme mevzuatı için Hukuk görüşü ve kurucu onayı gerekir. Komisyon/ilan ücreti (b/c) eklenmek istenirse kapsam değişir, ayrıca onay.
+- Tutarsızlık: F1 "SMS kodu" diyor, CTO kararı pilotta SMS OTP yok (e-posta+Apple/Google; otp-karar.md). F1 kabul kriteri bu karara göre revize edilecek (telefon rozeti pilot sonrası).
 - Teknik platform ve mimari: CTO (Ece).
 - Marka/isim/logo: kurucu onayı; bu dokümanda varsayılmadı.
 - Yasal metinler, KVKK, yasaklı ürün listesi: Hukuk (Murat).
-- Pilot başarı eşikleri (kaç teslim, kaç hafta): Pazarlama (Can) ile netleşecek; rakam uydurulmadı.
+- Pilot başarı eşikleri: docs/urun/pilot-esikler.md (8 hafta, hafta 8: 20 teslim/hafta; tahmin, pilotta kalibre).
 - Mağaza yayını: kurucu onayı gerekir.
 
 ## 7. Sonraki adımlar
 1. CTO: fizibilite ve efor tahmini (F1-F8), ardından RICE.
 2. Tasarım (Selin): F2 ve F5 akış taslağı, tek el kullanımı.
 3. Hukuk (Murat): yasaklı ürün, güvenli buluşma, sorumluluk metni görüşü.
-4. ONAY-002 sonrası bölüm 6 güncellenir.
+4. (Yapıldı 2026-10-17) ONAY-002 sonrası bölüm 6 güncellendi.

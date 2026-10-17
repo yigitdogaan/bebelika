@@ -1,0 +1,13 @@
+# Yerel geliştirme için (supabase CLI). Sırlar env'den okunur, buraya yazılmaz.
+[auth]
+enable_signup = true
+[auth.email]
+enable_confirmations = true
+[auth.external.apple]
+enabled = true
+client_id = "env(APPLE_CLIENT_ID)"
+secret = "env(APPLE_SECRET)"
+[auth.external.google]
+enabled = true
+client_id = "env(GOOGLE_CLIENT_ID)"
+secret = "env(GOOGLE_SECRET)"
