@@ -93,6 +93,13 @@ export function subscribeMessages(conversationId: string, onMessage: (m: Message
   return () => { supabase.removeChannel(ch); };
 }
 
+/** K8: iki taraf da mesajlaşabilir durumda mı? (neden/süre dönmez) */
+export async function canMessage(conversationId: string): Promise<boolean> {
+  const { data, error } = await supabase.rpc('can_message', { conv: conversationId });
+  if (error) return true; // sunucu RLS zaten reddeder; UI iyimser kalır
+  return data === true;
+}
+
 /** Mesajda telefon/IBAN var mı? Uyarı içindir, engellemez (MVP F4). */
 export function detectSensitive(text: string): 'iban' | 'phone' | null {
   const t = text.replace(/[\s.\-()]/g, '');

@@ -6,9 +6,10 @@ import { AuthScreen } from './src/auth/AuthScreen';
 import { DiscoverScreen } from './src/listings/DiscoverScreen';
 import { ListingDetailScreen } from './src/listings/ListingDetailScreen';
 import { ChatScreen } from './src/chat/ChatScreen';
+import { InboxScreen } from './src/chat/InboxScreen';
 import { CreateListingScreen } from './src/listings/CreateListingScreen';
 
-type Tab = 'kesfet' | 'ilan';
+type Tab = 'kesfet' | 'mesaj' | 'ilan';
 
 // Keşfet girişsiz gezilebilir olmalı (RLS izin veriyor); iskelette şimdilik giriş şart. TODO.
 export default function App() {
@@ -32,10 +33,12 @@ export default function App() {
               onOpenListing={(id) => { setChat(null); setOpen({ id, d: 0 }); }} />
           : open ? <ListingDetailScreen listingId={open.id} distanceM={open.d || undefined}
               onBack={() => setOpen(null)} onMessage={(cid) => setChat(cid)} />
+          : tab === 'mesaj' ? <InboxScreen onOpen={(id) => setChat(id)} />
           : <DiscoverScreen onOpen={(id, d) => setOpen({ id, d })} />}
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 12 }}>
-        <Button title="Keşfet" onPress={() => setTab('kesfet')} />
+        <Button title="Keşfet" onPress={() => { setChat(null); setOpen(null); setTab('kesfet'); }} />
+        <Button title="Mesajlar" onPress={() => { setChat(null); setOpen(null); setTab('mesaj'); }} />
         <Button title="İlan ver" onPress={() => setTab('ilan')} />
         <Button title="Çıkış" onPress={() => supabase.auth.signOut()} />
       </View>

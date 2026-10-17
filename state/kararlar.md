@@ -1,6 +1,7 @@
 # Karar Defteri
 tarih | kim | karar | gerekçe
 2026-10-17 | cto | app/ iskeleti: Expo SDK52 + Supabase (profil, ilan+PostGIS 400m snap, mesaj, rapor/engel, RLS); keşfet girişsiz okunur, yazma doğrulanmış e-posta ister | ONAY-003 sonrası; docs/teknik/mimari.md
+2026-10-17 | cto | K8 teyit: 0006 migration ile profiles.status/suspended_until + can_act()/can_message(); askı/ban hesap mesaj/sohbet/ilan açamaz, sohbet salt okunur; gelen kutusu my_inbox() RPC + InboxScreen | 0001-0005'te hesap durumu yoktu (gerçek boşluk); docs/teknik/gelen-kutusu-notu.md, SQL gerçek DB'de DOĞRULANMADI
 2026-10-17 | cto | S7 ilan detay + ReportScreen bağlantısı, §14a #1-4,#11 uygulandı; sohbet butonu pasif | Mağaza UGC şikâyet girişi şart; sahte işlev yok; docs/teknik/ilan-detay-notu.md
 2026-10-16 | Kerem | MVP kapsamı docs/urun/mvp.md: yalnız elden teslim, İstanbul pilot, F1-F8 içeride; ödeme/öne çıkarma dışarıda, ONAY-002'ye bağlı kararlar açık | Küçük MVP; gelir modeli kurucu kararına kadar ücretsiz varsayım
 2026-10-16 | cto | Expo/RN + TypeScript, Supabase (Postgres/PostGIS) backend; webview elendi | Webview App Store minimum işlevsellik red riski; tek kod tabanı, düşük maliyet, PostGIS geo-arama (docs/teknik/mimari.md)

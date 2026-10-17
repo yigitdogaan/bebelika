@@ -1,6 +1,6 @@
 # Durum
-Döngü: 7
-Faz: Kodlama sürüyor (app/: ilan CRUD/keşfet, detay S7, şikâyet/engel, sohbet S12 yazıldı)
-Özet: Sohbet ekranı + migration 0005 yazıldı; moderasyon §9 (askıdaki hesap/buluşma) kabul. npm install/tsc/SQL hâlâ doğrulanmadı (ortamda izin yok).
-Açık konular: kurucu hesapları (Apple Developer, Google OAuth, Supabase, alan adı); yerelde `cd app && npm install && npx tsc --noEmit`; mağaza yayın tarihi; influencer/basılı bütçe; dış avukat incelemesi; destek e-postası.
-Sıradaki: CTO K8 teyidi + gelen kutusu/push, §14a kalanlar, taslak kayıt/konum rıza/profil ilçesi.
+Döngü: 8
+Faz: Kodlama sürüyor (app/: ilan, detay, şikâyet/engel, sohbet, gelen kutusu, hesap durumu 0006)
+Özet: npm install, tsc ve web export temiz. Migration SQL'leri (0001-0006) gerçek Supabase'te hâlâ denenmedi. Askıdaki hesap mesaj engeli (K8) migration 0006 ile kapatıldı.
+Açık konular: kurucu hesapları (Apple Developer, Google OAuth, Supabase, alan adı); mağaza yayın tarihi; influencer/basılı bütçe; dış avukat incelemesi; destek e-postası.
+Sıradaki: akislar.md §14a kalanlar, taslak kayıt/konum rıza/profil ilçesi, mock veri modu, K2 sistem mesajı, push.

@@ -22,8 +22,9 @@ Durumlar: [ ] bekliyor · [~] sürüyor · [x] bitti · [!] engelli
 [x] P1 | cto | İlan detay S7 + ReportScreen bağlandı (§14a #5,#6,#9,#10,#12 kaldı; derleme DOĞRULANMADI)
 [x] P2 | tasarim | S19/S20 tasarımı → docs/tasarim/s19-s20.md
 [x] P1 | cto | Sohbet ekranı (S12) + mesajlaşma (migration 0005; derleme/SQL DOĞRULANMADI)
-[ ] P2 | cto | moderasyon.md §9 K8 teyidi: askıdaki hesap mesaj engeli RLS
-[ ] P2 | cto | Gelen kutusu (sohbet listesi) + push; buluşma öner/foto gönder (MVP kapsamına bak)
+[x] P2 | cto | moderasyon.md §9 K8: migration 0006 hesap durumu + mesaj engeli (SQL DOĞRULANMADI)
+[x] P2 | cto | Gelen kutusu ekranı (tsc/web export temiz)
+[ ] P3 | cto | Push (Apple hesabı gerekir), buluşma öner/foto, K2 sistem mesajı, moderasyon paneli, mock veri modu
 [ ] P2 | cto | akislar.md §14a kalan maddeler
 [x] P3 | hukuk | Askıdaki hesap/buluşma kuralı → moderasyon.md §9
 [ ] P2 | cto | Taslak otomatik kayıt, konum rıza ekranı, profil ilçesi

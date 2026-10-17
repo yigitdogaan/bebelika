@@ -6,7 +6,7 @@ import { supabase } from '../lib/supabase';
 import { blockUser, type ReportTarget } from '../safety/api';
 import { ReportScreen } from '../safety/ReportScreen';
 import {
-  detectSensitive, getConversation, listMessages, markRead, sendMessage, subscribeMessages,
+  canMessage, detectSensitive, getConversation, listMessages, markRead, sendMessage, subscribeMessages,
   type ConversationInfo, type Message,
 } from './api';
 
@@ -30,6 +30,7 @@ export function ChatScreen({ conversationId, onBack, onOpenListing }: Props) {
   const [menu, setMenu] = useState(false);
   const [report, setReport] = useState<{ target: ReportTarget; ownerId?: string } | null>(null);
   const [safetyCard, setSafetyCard] = useState(true);
+  const [canWrite, setCanWrite] = useState(true); // K8: askı/ban -> salt okunur
   const listRef = useRef<FlatList<Message>>(null);
 
   const addMsg = useCallback((m: Message) =>
@@ -44,6 +45,7 @@ export function ChatScreen({ conversationId, onBack, onOpenListing }: Props) {
       const [c, m] = await Promise.all([getConversation(conversationId), listMessages(conversationId)]);
       if (!c) { setState('error'); return; }
       setConv(c); setMsgs(m); setState('ok');
+      canMessage(conversationId).then(setCanWrite).catch(() => {});
       if (uid) markRead(conversationId, uid).catch(() => {});
     } catch { setState('error'); }
   }, [conversationId]);
@@ -173,7 +175,10 @@ export function ChatScreen({ conversationId, onBack, onOpenListing }: Props) {
             </Pressable>);
         }} />
 
-      {closed ? (
+      {!canWrite ? (
+        <View style={{ padding: 16 }} accessibilityRole="alert">
+          <Text>Bu kullanıcı şu an mesajlaşamıyor. Sohbet salt okunur.</Text></View>
+      ) : closed ? (
         <View style={{ padding: 16 }}><Text>Bu ilan artık yayında değil; yeni mesaj gönderilemez.</Text></View>
       ) : (
         <View>
