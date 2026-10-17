@@ -17,6 +17,8 @@ Durumlar: [ ] bekliyor · [~] sürüyor · [x] bitti · [!] engelli
 [x] P2 | hukuk | Moderasyon süreci taslağı → docs/hukuk/moderasyon.md
 [ ] P3 | hukuk | Dış avukat incelemesi paketi (yayın öncesi) | ONAY-004 ✔
 [ ] P1 | cto | npm install + tsc + expo install --fix doğrulaması; migration'ları test Supabase'te dene | kurucu Supabase hesabı
-[ ] P2 | cto | Şikâyet/engelleme tabloları + ekranı (moderasyon.md veri alanları)
+[x] P2 | cto | Şikâyet/engelleme migration 0004 + servis + ReportScreen (derleme/SQL DOĞRULANMADI)
+[x] P2 | tasarim | akislar.md v0.2 (kod fark listesi §14a)
+[ ] P1 | cto | İlan detay ekranı (S7) + ReportScreen'i bağla + akislar.md §14a düzeltmeleri
+[ ] P2 | tasarim | Karar bildirimi (S19) ve itiraz formu (S20) tasarımı
 [ ] P2 | cto | Taslak otomatik kayıt, konum rıza ekranı, profil ilçesi
-[ ] P2 | tasarim | akislar.md'yi ilan/keşfet ekranlarıyla uyumla

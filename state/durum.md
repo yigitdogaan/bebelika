@@ -1,6 +1,6 @@
 # Durum
-Döngü: 4
-Faz: Kodlama sürüyor (app/ iskeleti + ilan CRUD/keşfet yazıldı)
-Özet: İlan CRUD, fotoğraf (EXIF temizleme), keşfet kodu yazıldı; npm install/tsc/SQL doğrulanmadı (ortamda npm çalışmadı). mvp.md F1 düzeltildi. Moderasyon taslağı hazır (docs/hukuk/moderasyon.md).
-Açık konular: kurucu hesapları (Apple Developer, Google OAuth, Supabase); mağaza yayın tarihi; influencer/basılı bütçe; resmi makam bildirimi/ücretli moderasyon servisi taahhüt gerektirir.
-Sıradaki: CTO doğrulama + şikâyet/engelleme; Selin akış uyumu.
+Döngü: 5
+Faz: Kodlama sürüyor (app/ iskeleti, ilan CRUD/keşfet, şikâyet/engelleme yazıldı)
+Özet: Şikâyet/engelleme migration 0004 + servis + ekran yazıldı; akislar.md v0.2 kodla uyumlandı. npm install/tsc/SQL hâlâ doğrulanmadı (ortamda npm izni yok, psql/supabase CLI yok). Harita ekranı MVP dışı.
+Açık konular: kurucu hesapları (Apple Developer, Google OAuth, Supabase); yerelde `cd app && npm install && npx tsc --noEmit` doğrulaması; mağaza yayın tarihi; influencer/basılı bütçe; dış avukat incelemesi.
+Sıradaki: CTO ilan detay ekranı + bağlama; Selin S19/S20 tasarımı.

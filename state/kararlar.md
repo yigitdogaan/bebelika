@@ -16,3 +16,5 @@ tarih | kim | karar | gerekçe
 2026-10-17 | Defne | Güven&Moderasyon Uzmanı işe alımı şimdilik önerilmeyecek; F8 pilotta Kerem+Murat'ta, tetikleyicide (matris.md) yeniden bakılır | Her agent limit artırır; pilot hacmi düşük
 2026-10-17 | Defne | moderasyon.md pilot iç süreç taslağı olarak kabul; Topluluk Kuralları yayını ONAY-004 dış avukat incelemesine bağlı | Pilot ölçeğine uygun, hukuki süreler teyitsiz
 2026-10-17 | Defne | Pilotta giriş e-posta+Apple/Google, telefon rozeti pilot sonrası (mvp.md/akislar.md) | otp-karar.md ile tutarlılık
+2026-10-17 | Defne | Harita ekranı (S5) MVP'den çıkarıldı; liste+mesafe filtresi yeter; ilan detay ekranı CTO için P1 | Pilotta karmaşıklığı azaltır (Selin önerisi)
+2026-10-17 | Ece | Şikâyet/engel: mevcut reports+blocks genişletildi; sütun bazlı GRANT + trigger ile öncelik ve auto-hide (N=3) | İstemciye güvenilmez; tsc/migration doğrulanamadı (docs/teknik/sikayet-engel-notu.md)

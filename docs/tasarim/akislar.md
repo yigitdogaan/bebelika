@@ -1,5 +1,5 @@
 # Bebelika Ana Akışlar ve Metin Wireframe (v0.1)
-Sahip: Selin (Tasarım) | Tarih: 2026-10-16 | Durum: ÖNERİ; kesin karar CEO/kurucu.
+Sahip: Selin (Tasarım) | Tarih: 2026-10-17 (v0.2, kodla uyumlandı) | Durum: ÖNERİ; kesin karar CEO/kurucu.
 Girdi: docs/urun/mvp.md (F1-F9), docs/hukuk/politika.md. Marka/isim/logo/renk kurucu onayına bağlı; burada yalnız işlev ve ton.
 
 ## 1. Tasarım ilkeleri (gerekçeli)
@@ -29,6 +29,7 @@ Girdi: docs/urun/mvp.md (F1-F9), docs/hukuk/politika.md. Marka/isim/logo/renk ku
 | S16 | Profil (kendi/başkası) | F1, F7 |
 | S17 | Şikâyet / engelle sayfası | F8 |
 | S18 | Favoriler (P2) | F9 |
+| S19-S20 | Karar bildirimi, itiraz formu (Hukuk §5; henüz tasarlanmadı, bölüm 10) | F8 |
 Gezinme: alt sekme çubuğu 4 sekme: Keşfet, İlan Ver (ortada belirgin), Mesajlar, Profil.
 
 ## 3. Onboarding (F1) - 3 ekran
@@ -47,7 +48,7 @@ Erişilebilirlik: klavye açıkken buton klavyenin üstünde yapışık; hata me
 Sıralama varsayılan: mesafe + yenilik; menüden değiştirilebilir. Çekerek yenile; sonsuz kaydırma.
 Boş sonuç: illüstrasyon + "Yakında ilan yok" + [Mesafeyi genişlet] ana buton + [Filtreleri temizle].
 **S5 Harita:** harita tam ekran; ilanlar yaklaşık konum DAİRESİ (tam nokta işareti değil) olarak; alt çekmece kart (sürüklenebilir) seçilen ilanı gösterir; [Liste] yüzen buton. Erişilebilirlik: harita yalnız ek görünüm; tüm bilgi listede de var; harita öğeleri için ekran okuyucuya "5 ilan, yaklaşık 1 km" özeti.
-**S6 Filtre** (alt sayfa, %80 yükseklik): Kategori (çoklu), Fiyat aralığı (iki alan + kaydırıcı), Mesafe (1/3/5/10 km seçim çipleri), Bebek yaş aralığı (0-6 ay, 6-12 ay, 1-2 yaş, 2+). Alt sabit: [N ilanı göster], yanında [Temizle].
+**S6 Filtre** (alt sayfa, %80 yükseklik): Kategori (çoklu), Fiyat aralığı (iki alan + kaydırıcı), Mesafe (1/3/5/10/25 km seçim çipleri; 25 = "genişlet" hedefi), Bebek yaş aralığı (0-6 ay, 6-12 ay, 1-2 yaş, 2+). Alt sabit: [N ilanı göster], yanında [Temizle].
 Yasaklı kategori (mama, emzik vb.) listede yer almaz.
 
 ## 5. İlan detay (S7) (F3, F5, F8)
@@ -56,11 +57,12 @@ Yasaklı kategori (mama, emzik vb.) listede yer almaz.
 Oto koltuğu, beşik gibi riskli kategoride ek uyarı kutusu: "Etiketi ve geri çağırma durumunu teslimde kontrol et" + resmi kaynak bağlantısı (Hukuk 3.2/3.3).
 Üst sağ "..." menüsü: [İlanı şikâyet et], [Güvensiz ürün bildir] (ayrı, görünür satır olarak da ilan sonunda).
 **Alt sabit çubuk (başparmak):** [Favori] (P2) ikonu + ana buton [Satıcıya mesaj yaz] tam genişlik. Hızlı seçenekler: "Hâlâ var mı?" çipi doğrudan gönderir.
+Durumlar: yükleniyor (iskelet), ilan kaldırıldı/gizlendi "Bu ilan artık yayında değil" + [Keşfet'e dön], ağ hatası + [Tekrar dene]. Engellenen satıcının ilanı açılmaz. Giriş: Keşfet kartı (kodda henüz bağlı değil, fark #1).
 Kendi ilanında: [Düzenle] [Verildi işaretle] [Kaldır]. Verilmiş ilanda buton pasif, "Bu ilan verildi".
 
 ## 6. İlan ver (F2) - 3 adım, hedef <60 sn
 İlerleme: "1/3" metni + çubuk. Taslak otomatik kaydedilir; açılışta "Yarım kalan ilanına devam et" kartı.
-**S8 Foto (adım 1):** kamera + galeri, en az 1, en çok 8 (öneri). Yönlendirme metni: "Ürünü düz zeminde çek. Çocuk yüzü görünmesin." (Hukuk 4). Alt: [Devam].
+**S8 Foto (adım 1):** kamera + galeri, en az 1, en çok 6 (kodla uyumlu). Yönlendirme metni: "Ürünü düz zeminde çek. Çocuk yüzü görünmesin." (Hukuk 4). Alt: [Devam].
 **S9 Bilgi (adım 2):** tek kaydırmasız ekran hedefi: Kategori (büyük döşeme seçim, ilk ikon ızgarası), Durum (3 büyük segment: Yeni gibi/İyi/Orta), Fiyat (sayısal klavye) + [Ücretsiz] anahtarı. Başlık/açıklama "isteğe bağlı" bölümünde; başlık kategoriden otomatik önerilir. Alt: [Devam].
 Kategori seçilince koşullu uyarı: yasaklı ürün kısa listesi satırı "Mama, emzik, ilaç ilan verilemez" + [Neden?]. Riskli kategoride ek zorunlu alanlar (oto koltuğu: üretim tarihi, marka/model, kazasız onayı) satır içi belirir; adım uzar, kullanıcıya önceden "+1 küçük adım" yazılır.
 Geri çağırma eşleşmesinde: engelleyici kart "Bu ürün için güvenlik uyarısı var" + resmi bağlantı; [Yayınla] pasif.
@@ -91,7 +93,13 @@ MVP dışı: canlı konum / "buluşmaya gidiyorum" paylaşımı (mvp.md bölüm 
 **S16 Profil:** ad, ilçe, ortalama + işlem sayısı; az işlemde "Yeni üye" rozeti (eşik pilotta); aktif ilanlar; sekme Aldıklarım/Sattıklarım; ayarlar: bildirimler, konum izni, hesabı ve verileri sil (KVKK/mağaza gereği), engellenenler.
 
 ## 10. Şikâyet ve engelleme (F8) - S17
-Girişler: ilan menüsü, sohbet menüsü, profil menüsü, teslim sonrası. Alt sayfa: nesne (ilan/kullanıcı) + kategori seçimi tek dokunuş: Yasaklı/güvensiz ürün, Dolandırıcılık (IBAN/ön ödeme), Uygunsuz foto (çocuk görüntüsü dahil), Taciz, Sahte ilan, Diğer. İsteğe bağlı not. [Gönder] + [Ayrıca engelle] anahtarı. Sonuç: "Bildirimin alındı. Teşekkürler." (süre sözü verilmez; 24 saat SLA iç hedef, kullanıcıya taahhüt yazılmaz).
+Girişler: ilan menüsü (S7), sohbet menüsü (S12, hedef kullanıcı/mesaj), profil menüsü (S16), teslim sonrası (S14). Alt sayfa; hedef ilan/kullanıcı/mesaj (kod: ReportTarget).
+Kategori (tek seçim, Hukuk C1-C7 ile birebir, kod ile aynı): C1 Çocuğa ait görüntü/istismar şüphesi; C2 Geri çağrılan/güvensiz ürün; C3 Taciz, tehdit, güvenlik sorunu; C4 Dolandırıcılık (IBAN, ön ödeme); C5 Sahte/taklit ürün; C6 Sahte ilan, spam, yanlış kategori; C7 Diğer. Sıra: kullanıcıya en sık olanlar üstte (C4, C2, C6 önde) önerilir; kod/öncelik eşlemesi değişmez.
+Alanlar: not (ops., 1000 karakter), [Ayrıca engelle] anahtarı (yalnız sahibi bilinen hedefte), [Gönder] alt sabit, [Vazgeç].
+Durumlar: "Bildirimin alındı. Teşekkürler." (süre sözü yok); tekrar: "Bunu zaten bildirdin." (bilgi, hata değil; 1 şikâyet/nesne); ağ hatası satır içi. Şikâyet eden karşı tarafa açıklanmaz; engellenene bildirim gitmez.
+C3 seçilince: "Acil tehlikede 112'yi ara." (Hukuk §2). "İçeriği hemen gizleriz" gibi taahhüt YAZILMAZ.
+Karar/itiraz (Hukuk §5): S19 Karar bildirimi (ilan sahibine: ihlal türü, [İtiraz et] 14 gün; şikâyet edene ayrıntısız "sonuçlandı"); S20 İtiraz formu. Henüz tasarlanmadı, ayrıntı sonraki tur.
+Engellenenler listesi S16 ayarlarında, [Engeli kaldır] tek dokunuş. Engelli kullanıcı keşfet/sohbet listesinden gizlenir (CTO teyidi).
 Yasaklı ürün uyarısı: ilan verirken S9'da (bölüm 6), arama boş sonucunda gerekmez.
 
 ## 11. F1-F9 kapsam eşlemesi
@@ -108,16 +116,7 @@ Yasaklı ürün uyarısı: ilan verirken S9'da (bölüm 6), arama boş sonucunda
 | F9 (P2) | S18 Favoriler, S7 kalp ikonu; bildirim: fiyat düştü / verildi |
 
 ## 12. Güvenlik uyarısı yerleşim özeti
-| Nokta | Uyarı | Biçim |
-|---|---|---|
-| S3 | Konum yalnız uygulama açıkken, adres paylaşılmaz | Bilgi kartı |
-| S9 | Yasaklı ürünler, riskli kategori beyanları | Satır içi, koşullu |
-| S8 | Çocuk yüzü görünmesin | Yönlendirme metni |
-| S7 | Ödeme buluşmada, ön ödeme/IBAN tuzağı | Kalıcı şerit |
-| S12 | Numara paylaşma zorunlu değil; IBAN/telefon algılama | Kart + satır içi |
-| S13 | Gündüz öner, tam adres gerekmez | Yumuşak uyarı |
-| Kabul sonrası | Güvenlik ipuçları | Tam ekran kart + bildirim |
-| S14 | Güvensiz hissettim -> şikâyet | Seçenek |
+S3 bilgi kartı (konum); S8 yönlendirme (çocuk yüzü); S9 satır içi koşullu (yasaklı, riskli beyan); S7 kalıcı şerit (ön ödeme/IBAN); S12 kart + satır içi (numara, IBAN algılama); S13 yumuşak uyarı (gündüz); kabul sonrası tam ekran ipuçları kartı; S14 "güvensiz hissettim" -> şikâyet; S17 C3 -> 112 bilgisi.
 
 ## 13. Genel erişilebilirlik (WCAG 2.2 AA hedefi)
 - Metin kontrastı ≥4,5:1; bilgi yalnız renkle verilmez (durum etiketi metinli).
@@ -126,6 +125,21 @@ Yasaklı ürün uyarısı: ilan verirken S9'da (bölüm 6), arama boş sonucunda
 - Hareketi azalt ayarına saygı; animasyon kısa. Haritaya alternatif liste.
 - Tek parmak alternatifi: sürükle-bırak/pinç zorunlu değil.
 - Uyarı metinleri 6. sınıf okuma düzeyinde, kısa; Türkçe karakter ve sayı biçimi (1.250 TL).
+
+## 14a. Kod ile fark listesi (2026-10-17; app/src/listings, safety) ve önerilen düzeltme
+| # | Kodda | Tasarımda | Öneri (sahip) |
+|---|---|---|---|
+| 1 | İlan detay ekranı YOK (kart dokunuşu bir yere gitmiyor; şikâyet girişi yok) | S7 tam tanımlı | Kart `Pressable` + S7 yaz; menüden ReportScreen (CTO) |
+| 2 | Mesafe 1/5/10/25 km düz metin | 1/3/5/10, S6 alt sayfa | Tasarım 1/3/5/10/25'e güncellendi; kodda 3 ekle, çipler ≥48 dp (CTO) |
+| 3 | Liste satırı 72 px küçük foto, yatay | Tek sütun büyük foto | Büyük foto kartı; gerekçe: güven ve ürün durumu fotoda anlaşılır |
+| 4 | Kartta durum etiketi, satıcı puanı/"Yeni üye" yok | Zorunlu | `NearbyListing` alanlarına condition, seller_rating ekle (CTO) |
+| 5 | Konum reddedilince yalnız metin, çıkış yok | İlçe seçerek devam (S3) | İlçe seçici ekle; reddi hata gibi gösterme |
+| 6 | Harita (S5), filtre sayfası, sıralama yok; boş sonuçta [Filtreleri temizle] yok | Var | MVP'de S5 ertelenebilir (Ürün kararı); diğerleri eklenmeli |
+| 8 | İlan ver tek kaydırmalı form, `Button`, 6 foto sınırı | 3 adım, 8 foto, ilerleme | Foto sınırı 6 kabul (kodla uyum; gerekçe: yükleme süresi), tasarım 6'ya güncellendi; 3 adıma bölme sonraki iterasyon |
+| 9 | Kategori varsayılanı 1 (seçilmemiş yok), durum varsayılanı "İyi" | Bilinçli seçim | Durumu seçtirmeden başlama; yanlış beyan riski (Hukuk 3.4) |
+| 10 | Yasaklı ürün uyarısı, riskli kategori alanları, geri çağırma engeli, beyan onayı yok | S9, S10 | Hukuk için yayın öncesi zorunlu; CTO sıraya alsın |
+| 11 | Şikâyet kategorileri Hukuk C1-C7 ile uyumlu (fark yok); satırlar küçük metin (<48 dp), rol yok, Gönder/Vazgeç akışta (başparmak dışı), 1,2 sn `setTimeout` kapanış, hata/başarı aynı stil | Büyük satır, rol=radyo, alt sabit, ayrı durum | Satır ≥48 dp, `accessibilityRole="radio"`, alt sabit çubuk, [Tamam] ile kapanış, hata ikon+metin; "zaten bildirdin" bilgi tonu |
+| 12 | Kodda S19/S20, engellenenler listesi, hedef=message girişi yok | Bölüm 10 | Pilot öncesi eklenmeli (Hukuk §5 mağaza UGC) |
 
 ## 14. Açık noktalar ve varsayımlar
 - Kategori listesi (A3) Ürün ile netleşecek; yasaklı kategoriler Hukuk listesine göre.
