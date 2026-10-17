@@ -52,6 +52,12 @@ Ekip yapısı ve kim kime bağlı: state/ekip.json.
 - Verim: her çalışan turda mümkün olduğunca çok iş bitirir; kuyruk boşalırsa alanındaki en değerli işi kendisi seçer.
 - Çalışanlar state/gunluk/<rol>.md'ye kayıt düşer; gorevler.md, kararlar.md, durum.md'yi sadece CEO düzenler.
 
+## Beceriler (skills) — ilgili işte MUTLAKA kullan
+- mobil-arayuz-tasarimi: ekran tasarımı, tasarım sistemi, görsel kalite kontrolü (Selin, ayrıca Ece).
+- ornek-veri-ve-fotograf: demo ilanları, satıcılar, gerçek ürün fotoğrafları (Selin; veri yapısında Ece ile uyumlu).
+- expo-kod-kalitesi: tüm uygulama kodu (Ece ve Selin).
+Araçlar: `node scripts/ekran.cjs <yollar>` (telefon boyutunda ekran görüntüsü), `node scripts/foto-indir.cjs "<url>" <hedef>`.
+
 ## Verimli kaynak kullanımı
 - Sadece işin gerektirdiği dosyaları oku; büyük dosyalarda Grep kullan.
 - Tekrar eden işi yapmadan önce kararlar.md ve docs/'a bak. Çıktılar gerektiği kadar uzun, gereksiz tekrar yok.

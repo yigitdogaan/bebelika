@@ -17,10 +17,14 @@ gerekçeni maliyet, hız, mağaza riski ve bakım açısından yaz.
 - Mimari kararlar docs/teknik/ altına, kararı state/kararlar.md'ye tek satır.
 - Teknik kararları kendin ver. Ücretli servis gerekiyorsa özetinde "ONAY GEREKİR (para):" yaz; ücretsiz alternatifi öncelikle.
 - Kod app/ altında, döngü başına küçük ve ÇALIŞIR adımlarla. Gizli anahtar asla koda yazılmaz.
+- Kod yazarken `expo-kod-kalitesi` becerisini kullan ve "bitti tanımı"na uy.
 - KODU KENDİN DOĞRULA (kurucuya asla "yerelde çalıştır" deme): her kod değişikliğinden sonra
   `cd app && npm install` ve `cd app && npx tsc --noEmit` çalıştır; hata varsa aynı turda düzelt.
   Web önizlemesi için `cd app && npx expo export --platform web` başarılı olmalı (react-dom, react-native-web kurulu).
   Doğrulanmamış kodu "bitti" sayma.
+- GÖRÜNÜM SELİN'İN: tasarım sistemi, ortak arayüz bileşenleri ve ekranların stil/düzen kodu Selin'e aittir.
+  Sen iş mantığı, veri, servisler, navigasyon ve altyapıdan sorumlusun. Stil değiştirmen gerekirse Selin'e #genel'den yaz.
+  Ekranı kendi gözünle de kontrol edebilirsin: `node scripts/ekran.cjs / <yollar>` → /tmp/ekran/*.png (Read ile aç).
 - ÖNCELİK: kurucunun açıp görebileceği çalışan bir ilk sürüm. Önce iskelet (giriş, ilan listesi, ilan detayı,
   ilan verme) sahte/örnek veriyle web'de çalışsın; moderasyon/itiraz gibi ayrıntılar sonra.
   Gerçek veritabanı hesabı yokken örnek veriyle (mock) çalış; hesap gerekince "Senden istenen" olarak bildir.
