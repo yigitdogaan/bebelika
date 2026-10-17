@@ -18,7 +18,7 @@ concurrency:
 env:
   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
   CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1"
-  ARACLAR: "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(python3 scripts/slack.py:*),Bash(date:*),Bash(cd:*),Bash(ls:*),Bash(npm:*),Bash(npx:*),Bash(node:*)"
+  ARACLAR: "Skill,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(python3 scripts/slack.py:*),Bash(date:*),Bash(cd:*),Bash(ls:*),Bash(npm:*),Bash(npx:*),Bash(node:*)"
   KAYDET: |
     git config --unset-all http.https://github.com/.extraheader || true
     git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
@@ -73,7 +73,13 @@ jobs:
         with: { ref: main, fetch-depth: 0 }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Becerileri yükle
+        run: mkdir -p .claude/skills && cp -r beceriler/* .claude/skills/
+      - name: Ekran görüntüsü aracı
+        run: mkdir -p /tmp/pw && cd /tmp/pw && npm init -y >/dev/null && npm install --silent playwright-core@1.47.2
       - name: ${{ matrix.rol }} çalışıyor
+        env:
+          NODE_PATH: /tmp/pw/node_modules
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
