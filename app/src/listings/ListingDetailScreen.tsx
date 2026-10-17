@@ -5,6 +5,7 @@ import {
 import { supabase } from '../lib/supabase';
 import { blockUser } from '../safety/api';
 import { ReportScreen } from '../safety/ReportScreen';
+import { getOrCreateConversation } from '../chat/api';
 import { getListing } from './api';
 import { CATEGORIES, CONDITIONS, type ListingDetail } from './types';
 
@@ -12,6 +13,7 @@ interface Props {
   listingId: string;
   distanceM?: number;
   onBack: () => void;
+  onMessage: (conversationId: string) => void;
 }
 
 const W = Dimensions.get('window').width;
@@ -23,13 +25,15 @@ function ageText(min: number | null, max: number | null) {
   return `${min ?? 0}-${max ?? '+'} ay`;
 }
 
-export function ListingDetailScreen({ listingId, distanceM, onBack }: Props) {
+export function ListingDetailScreen({ listingId, distanceM, onBack, onMessage }: Props) {
   const [item, setItem] = useState<ListingDetail | null>(null);
   const [state, setState] = useState<'loading' | 'ok' | 'gone' | 'error'>('loading');
   const [me, setMe] = useState<string | null>(null);
   const [menu, setMenu] = useState(false);
   const [report, setReport] = useState(false);
   const [idx, setIdx] = useState(0);
+  const [opening, setOpening] = useState(false);
+  const [msgErr, setMsgErr] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     setState('loading');
@@ -87,6 +91,19 @@ export function ListingDetailScreen({ listingId, distanceM, onBack }: Props) {
   const cond = CONDITIONS.find((c) => c.value === item.condition)?.label;
   const cat = CATEGORIES.find((c) => c.id === item.category_id)?.name;
   const age = ageText(item.age_min_months, item.age_max_months);
+
+  const canMessage = !own && !given && me != null;
+  async function startChat() {
+    if (!canMessage || opening) return;
+    setOpening(true); setMsgErr(null);
+    try { onMessage(await getOrCreateConversation(item!.id, item!.seller_id)); }
+    catch (e) {
+      const code = (e as { code?: string }).code;
+      setMsgErr(code === 'P0001' ? 'Bugünlük sohbet başlatma sınırına ulaştın. Yarın tekrar dene.'
+        : code === '42501' ? 'Bu satıcıya şu an mesaj yazamazsın. E-postanı doğruladığından emin ol.'
+        : 'Sohbet açılamadı. Tekrar dene.');
+    } finally { setOpening(false); }
+  }
 
   function confirmBlock() {
     Alert.alert('Satıcıyı engelle', 'Bu kullanıcının ilanlarını ve mesajlarını görmeyeceksin. Ona bildirim gitmez.', [
@@ -156,10 +173,12 @@ export function ListingDetailScreen({ listingId, distanceM, onBack }: Props) {
       </ScrollView>
 
       <View style={{ padding: 12 }}>
-        {/* Sohbet ekranı (S12) henüz yok: buton pasif, sahte işlev yok. */}
-        <Pressable disabled accessibilityRole="button" accessibilityState={{ disabled: true }}
-          style={{ minHeight: MIN, justifyContent: 'center', alignItems: 'center', backgroundColor: '#ddd' }}>
-          <Text>{given ? 'Bu ilan verildi' : own ? 'Senin ilanın' : 'Satıcıya mesaj yaz (yakında)'}</Text>
+        {msgErr && <Text accessibilityRole="alert" style={{ paddingBottom: 8 }}>⚠ {msgErr}</Text>}
+        <Pressable onPress={startChat} disabled={!canMessage || opening} accessibilityRole="button"
+          accessibilityState={{ disabled: !canMessage || opening }}
+          style={{ minHeight: MIN, justifyContent: 'center', alignItems: 'center',
+            backgroundColor: canMessage && !opening ? '#cfe8ff' : '#ddd' }}>
+          <Text>{given ? 'Bu ilan verildi' : own ? 'Senin ilanın' : opening ? 'Açılıyor…' : 'Satıcıya mesaj yaz'}</Text>
         </Pressable>
       </View>
     </View>

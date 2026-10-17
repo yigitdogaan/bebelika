@@ -21,7 +21,9 @@ Durumlar: [ ] bekliyor · [~] sürüyor · [x] bitti · [!] engelli
 [x] P2 | tasarim | akislar.md v0.2 (kod fark listesi §14a)
 [x] P1 | cto | İlan detay S7 + ReportScreen bağlandı (§14a #5,#6,#9,#10,#12 kaldı; derleme DOĞRULANMADI)
 [x] P2 | tasarim | S19/S20 tasarımı → docs/tasarim/s19-s20.md
-[ ] P1 | cto | Sohbet ekranı (S12) + mesajlaşma | S7 bitti
+[x] P1 | cto | Sohbet ekranı (S12) + mesajlaşma (migration 0005; derleme/SQL DOĞRULANMADI)
+[ ] P2 | cto | moderasyon.md §9 K8 teyidi: askıdaki hesap mesaj engeli RLS
+[ ] P2 | cto | Gelen kutusu (sohbet listesi) + push; buluşma öner/foto gönder (MVP kapsamına bak)
 [ ] P2 | cto | akislar.md §14a kalan maddeler
-[ ] P3 | hukuk | Askıdaki hesabın mevcut buluşmalardaki durumu
+[x] P3 | hukuk | Askıdaki hesap/buluşma kuralı → moderasyon.md §9
 [ ] P2 | cto | Taslak otomatik kayıt, konum rıza ekranı, profil ilçesi

@@ -72,3 +72,16 @@ Hazırlayan: Av. Murat (Hukuk ve Uyum) | Tarih: 2026-10-17 | Durum: TASLAK
 - ONAY GEREKİR (taahhüt): Kullanıcı Sözleşmesi/Topluluk Kuralları'na bu sürecin yazılması, yetkili makamlara resmi bildirim/başvurular, ücretli moderasyon servisi.
 - Avukata sorulacaklar: bildir-kaldır yasal süresi ve 6563 m.9 kapsamı; ihtiyati gizleme ve ban için sözleşme dayanağı; saklama süreleri; telefon/cihaz hash'inin KVKK uygunluğu; çocuk görüntüsü bildirim yükümlülüğü; otomatik gizlemenin otomatik karar sayılıp sayılmadığı.
 - Pilot sonu gözden geçirme: eşikler (N, süreler, ihlal basamakları) pilot verisiyle yeniden ayarlanır.
+
+## 9. Askıdaki/banlı hesap ve mevcut-planlı buluşmalar (A3/A4)
+> Taslak; avukat incelemesi önerilir. "(TEYİT)" = avukat teyidi gerekir. Yeni web araması yapılmadı; dayanak §1-§6 ve politika.md.
+- Olgu: Pilotta ödeme/emanet yok, yalnız elden teslim; Bebelika bedel tutmaz. Yapısal "buluşma" kaydı yok (buluşma önerisi sonraya, sohbet-notu.md); "planlı buluşma" = sohbette kararlaştırılan görüşme. "İade" Bebelika ile değil, taraflar arasındadır.
+- K1 Yeni eylem kapanır: askıda/banlı hesap ilan veremez, sohbet başlatamaz, mesaj gönderemez; sohbetleri salt okunur olur (yalnız S19/S20/destek). Karşı taraf "bu kullanıcı şu an mesajlaşamıyor" görür.
+- K2 Karşı tarafa bildirim (A3, A4): açık sohbeti olan tarafa nötr sistem mesajı: "Bu kullanıcıyla görüşmeniz sürdürülemiyor. Planlı bir buluşma varsa iptal sayılmasını öneririz." Sebep, ihlal türü, askı/ban ayrımı, süre ve şikâyetçi YAZILMAZ (kişisel veri, itibar/kişilik hakkı riski, TEYİT).
+- K3 Güvenlik istisnası (C1, C3, dolandırıcılık): karşı tarafın fiziksel/mali riski varsa ek uyarı: "Bu kişiyle buluşmayın; sorun yaşadıysanız şikâyet edin, acilse 112." İhlal ayrıntısı yine verilmez. Karar Hukuk/moderatörde.
+- K4 Buluşma: Bebelika planlı buluşmayı iptal etmez/yönetmez. İlan A3'te geçici, A4'te kalıcı gizlenir; varsa rezerve işareti kalkar.
+- K5 İade/ücret: ücretli hizmet olmadığı sürece iade doğmaz. Taraflar arası ön ödeme politika ihlali işaretidir; Bebelika aracı değildir, tahsil/iade üstlenmez; kullanıcı banka/yetkili mercilere yönlendirilir. Ücretli özellik gelirse bölüm yeniden yazılır (tüketici mevzuatı atfı, TEYİT).
+- K6 Askı bitişi/itiraz: A3 bitince sohbetler yazılabilir olur; iptal sayılan buluşma canlanmaz, karşı tarafa "geri döndü" bildirimi gitmez. İtiraz kabulünde K1 kalkar, bildirim gönderilmez.
+- K7 Gizlilik: şikâyet eden ve ban/askı nedeni kimseye açıklanmaz; askıdaki kullanıcıya şikâyet bilgisi verilmez. Mesaj geçmişi karşı tarafta kalır; profil gizlenir. Saklama §6 sürelerine tabidir (TEYİT).
+- K8 Teknik (CTO): users.status != active iken mesaj insert RLS ile reddedilir, sohbet salt okunur; K2/K3 şablonu moderation_actions kaydıyla bir kez gönderilir. S19'daki "karşı tarafa bilgi gider" bu bölümle eşleşir (CTO teyidi).
+- ONAY GEREKİR (taahhüt): K2/K3'ün Kullanıcı Sözleşmesi/Topluluk Kuralları'na yazılması (kurucu); yayın öncesi Av. teyidi (K2 kişilik hakkı, K5 aracı hizmet sağlayıcı sınırı).
