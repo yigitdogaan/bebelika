@@ -70,7 +70,7 @@ class Query implements PromiseLike<Result> {
           return { data: null, error: { code: '23505', message: 'duplicate' } };
         }
         rows.push(row); out.push(row);
-        if (this.table === 'messages') { emit('messages', row); botReply(row); }
+        if (this.table === 'messages') emit('messages', row);
       }
     } else if (this.op === 'update') {
       out = rows.filter(match); out.forEach((r) => Object.assign(r, this.payload));
@@ -115,21 +115,11 @@ class Query implements PromiseLike<Result> {
   }
 }
 
-// Satıcı otomatik cevap (demo canlı hissi).
-function botReply(m: Row) {
-  if (m.sender_id !== ME.id) return;
-  const conv = db.conversations.find((c) => c.id === m.conversation_id);
-  if (!conv || conv.buyer_id !== ME.id) return;
-  setTimeout(() => {
-    const row = {
-      id: nextMessageId(), conversation_id: conv.id, sender_id: conv.seller_id,
-      body: 'Tamamdır, uygun olduğumda yazarım 🙂', created_at: new Date().toISOString(), read_at: null,
-    };
-    db.messages.push(row); emit('messages', row);
-  }, 1500);
-}
+// Karşı taraf cevabı SİMÜLE EDİLMEZ (demo-veri.md §4: aldatıcı olur).
 
 // ---- RPC'ler ----
+// Sıralama: mesafe (km) + yenilik cezası (gün başına 0,5 km). Gerçek SQL sıralaması ayrıca ayarlanacak.
+const score = (l: Row) => l.distance_m / 1000 + ((Date.now() - Date.parse(l.created_at)) / 86_400_000) * 0.5;
 const blockedByMe = () => db.blocks.filter((b) => b.blocker_id === ME.id).map((b) => b.blocked_id);
 
 function rpc(name: string, a: Row): Result {
@@ -138,7 +128,7 @@ function rpc(name: string, a: Row): Result {
     const q = a.p_query ? String(a.p_query).toLocaleLowerCase('tr') : null;
     const off = a.p_offset ?? 0;
     const data = db.listings
-      .filter((l) => l.status === 'aktif' && !blocked.includes(l.seller_id)
+      .filter((l) => l.status === 'aktif' && l.seller_id !== ME.id && !blocked.includes(l.seller_id)
         && l.distance_m <= (a.radius_km ?? 5) * 1000
         && (a.p_category == null || l.category_id === a.p_category)
         && (a.p_min_price == null || l.price_try >= a.p_min_price)
@@ -146,7 +136,7 @@ function rpc(name: string, a: Row): Result {
         && (a.p_age_months == null
           || ((l.age_min_months ?? 0) <= a.p_age_months && a.p_age_months <= (l.age_max_months ?? 999)))
         && (!q || `${l.title ?? ''} ${l.description ?? ''}`.toLocaleLowerCase('tr').includes(q)))
-      .sort((x, y) => x.distance_m - y.distance_m)
+      .sort((x, y) => score(x) - score(y))
       .slice(off, off + (a.p_limit ?? 30))
       .map(({ id, title, price_try, condition, category_id, distance_m, created_at }) =>
         ({ id, title, price_try, condition, category_id, distance_m, created_at }));
@@ -170,6 +160,7 @@ function rpc(name: string, a: Row): Result {
     return { data, error: null };
   }
   if (name === 'can_message') return { data: true, error: null };
+  if (name === 'delete_my_account') return { data: null, error: null }; // oturum kapanışını istemci yapar
   return { data: null, error: { message: `mock: bilinmeyen rpc ${name}` } };
 }
 
@@ -224,6 +215,17 @@ export function createMockClient() {
 function mockPhotoUrl(path: string): string {
   if (uploaded.has(path)) return uploaded.get(path)!;
   const [color, emoji] = path.startsWith('demo:') ? path.slice(5).split('|') : ['#e5e5e5', '📷'];
+  // Web: react-native-web SVG data URI'yi yüklemedi (doğrulandı: bg boş); canvas PNG güvenilir.
+  if (typeof document !== 'undefined') {
+    const c = document.createElement('canvas'); c.width = 400; c.height = 400;
+    const g = c.getContext('2d');
+    if (g) {
+      g.fillStyle = color; g.fillRect(0, 0, 400, 400);
+      g.font = '160px sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
+      g.fillText(emoji, 200, 210);
+      return c.toDataURL('image/png');
+    }
+  }
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="${color}"/>`
     + `<text x="200" y="240" font-size="160" text-anchor="middle">${emoji}</text></svg>`;
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;

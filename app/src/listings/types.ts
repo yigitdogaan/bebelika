@@ -4,10 +4,12 @@ export const CONDITIONS: { value: Condition; label: string }[] = [
   { value: 'iyi', label: 'İyi' },
   { value: 'orta', label: 'Orta' },
 ];
-// 20261017000001_schema.sql içindeki sıra ile aynı (identity 1..7). Sonra categories tablosundan çekilecek.
+// 0001 (identity 1..7) + 0007 (8..11) sırasıyla aynı. Sonra categories tablosundan çekilecek.
 export const CATEGORIES: { id: number; name: string }[] = [
-  { id: 1, name: 'Giyim' }, { id: 2, name: 'Bebek arabası' }, { id: 3, name: 'Mama sandalyesi' },
-  { id: 4, name: 'Oyuncak' }, { id: 5, name: 'Beslenme' }, { id: 6, name: 'Uyku' }, { id: 7, name: 'Diğer' },
+  { id: 1, name: 'Giyim' }, { id: 2, name: 'Bebek arabası ve taşıma' }, { id: 3, name: 'Mama sandalyesi' },
+  { id: 4, name: 'Oyuncak' }, { id: 5, name: 'Beslenme gereçleri' }, { id: 6, name: 'Uyku' }, { id: 7, name: 'Diğer' },
+  { id: 8, name: 'Oto koltuğu' }, { id: 9, name: 'Banyo ve bakım' }, { id: 10, name: 'Anne ürünleri' },
+  { id: 11, name: 'Kitap ve gelişim' },
 ];
 
 export interface NearbyListing {

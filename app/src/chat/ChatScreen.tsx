@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator, Alert, FlatList, Image, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TextInput, View,
 } from 'react-native';
+import { confirmDialog, notify } from '../lib/dialog';
 import { supabase } from '../lib/supabase';
 import { blockUser, type ReportTarget } from '../safety/api';
 import { ReportScreen } from '../safety/ReportScreen';
@@ -61,6 +62,9 @@ export function ChatScreen({ conversationId, onBack, onOpenListing }: Props) {
 
   const other = conv ? (conv.buyer_id === me ? conv.seller_id : conv.buyer_id) : undefined;
   const warn = detectSensitive(text);
+  // Karşıdan gelen mesajda IBAN geçiyorsa uyarı bandı (engelleme yok).
+  const incomingIban = msgs.some((m) => m.sender_id != null && m.sender_id !== me
+    && (detectSensitive(m.body) === 'iban' || /\biban\b/i.test(m.body)));
 
   async function send(body: string) {
     if (sending || !body.trim()) return;
@@ -78,12 +82,9 @@ export function ChatScreen({ conversationId, onBack, onOpenListing }: Props) {
 
   function confirmBlock() {
     if (!other) return;
-    Alert.alert('Kullanıcıyı engelle', 'Bu kullanıcıdan mesaj almayacaksın ve ona mesaj gönderemeyeceksin. Ona bildirim gitmez.', [
-      { text: 'Vazgeç', style: 'cancel' },
-      { text: 'Engelle', style: 'destructive', onPress: async () => {
-        try { await blockUser(other); onBack(); } catch { Alert.alert('Engellenemedi', 'Tekrar dene.'); }
-      } },
-    ]);
+    confirmDialog('Kullanıcıyı engelle', 'Bu kullanıcıdan mesaj almayacaksın ve ona mesaj gönderemeyeceksin. Ona bildirim gitmez.', 'Engelle', async () => {
+      try { await blockUser(other); onBack(); } catch { notify('Engellenemedi', 'Tekrar dene.'); }
+    });
   }
 
   if (report) {
@@ -144,7 +145,7 @@ export function ChatScreen({ conversationId, onBack, onOpenListing }: Props) {
         </View>
       </Pressable>
 
-      {safetyCard && (
+      {safetyCard && !incomingIban && (
         <View style={{ backgroundColor: '#fff6d6', padding: 12 }} accessibilityRole="summary">
           <Text>Ödemeyi ve ürün kontrolünü buluşmada yap. Ön ödeme veya IBAN isteyenlere güvenme.
             Halka açık, kalabalık bir yerde buluş.</Text>
@@ -152,17 +153,28 @@ export function ChatScreen({ conversationId, onBack, onOpenListing }: Props) {
             style={{ minHeight: MIN, justifyContent: 'center' }}><Text style={{ fontWeight: '700' }}>Anladım</Text></Pressable>
         </View>)}
 
+      {incomingIban && (
+        <View style={{ backgroundColor: '#fff6d6', padding: 12 }} accessibilityRole="alert">
+          <Text>Kişisel bilgi ve IBAN paylaşma. Ön ödeme isteyenlere dikkat.</Text>
+        </View>)}
+
       <FlatList ref={listRef} data={msgs} keyExtractor={(m) => String(m.id)} style={{ flex: 1 }}
         contentContainerStyle={{ padding: 12, gap: 8 }}
         onContentSizeChange={() => listRef.current?.scrollToEnd({ animated: false })}
         ListEmptyComponent={<Text style={{ textAlign: 'center', marginTop: 24 }}>Henüz mesaj yok. Bir hızlı yanıt seç ya da yaz.</Text>}
         renderItem={({ item: m }) => {
+          if (m.sender_id == null) {
+            return (
+              <View accessibilityRole="summary" style={{ alignSelf: 'center', maxWidth: '90%', padding: 10, backgroundColor: '#fff6d6' }}>
+                <Text style={{ textAlign: 'center' }}>{m.body}</Text>
+              </View>);
+          }
           const mine = m.sender_id === me;
           return (
             <Pressable
               onLongPress={() => !mine && Alert.alert('Mesaj', undefined, [
                 { text: 'Vazgeç', style: 'cancel' },
-                { text: 'Mesajı şikâyet et', onPress: () => setReport({ target: { type: 'message', id: m.id }, ownerId: m.sender_id }) },
+                { text: 'Mesajı şikâyet et', onPress: () => setReport({ target: { type: 'message', id: m.id }, ownerId: m.sender_id ?? undefined }) },
               ])}
               accessibilityLabel={`${mine ? 'Sen' : 'Karşı taraf'}: ${m.body}`}
               style={{ alignSelf: mine ? 'flex-end' : 'flex-start', maxWidth: '80%', padding: 10,

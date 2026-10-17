@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Pressable, ScrollView, Switch, Text, TextInput, View } from 'react-native';
+import { MOCK } from '../lib/supabase';
 import { REPORT_CATEGORIES, submitReport, type ReportCategory, type ReportTarget } from './api';
 
 interface Props {
@@ -35,6 +36,7 @@ export function ReportScreen({ target, ownerId, onDone }: Props) {
       <View style={{ flex: 1, padding: 16, paddingTop: 48, justifyContent: 'space-between' }}>
         <Text accessibilityRole="summary" style={{ fontSize: 18 }}>
           {result === 'sent' ? 'Bildirimin alındı. Teşekkürler.' : 'Bunu zaten bildirdin.'}
+          {MOCK ? '\n\nDemo modunda bildirim kimseye gönderilmez.' : ''}
         </Text>
         <Pressable onPress={onDone} accessibilityRole="button"
           style={{ minHeight: 48, justifyContent: 'center', alignItems: 'center', backgroundColor: '#ddd' }}>

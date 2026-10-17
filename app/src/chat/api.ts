@@ -2,7 +2,7 @@ import { supabase } from '../lib/supabase';
 import { photoPublicUrl } from '../listings/api';
 
 export interface Message {
-  id: number; conversation_id: string; sender_id: string; body: string;
+  id: number; conversation_id: string; sender_id: string | null /* null = sistem notu */; body: string;
   created_at: string; read_at: string | null;
 }
 export interface ConversationInfo {

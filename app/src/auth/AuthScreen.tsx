@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Alert, Platform, StyleSheet, Text, View } from 'react-native';
+import { Alert, Button, Platform, StyleSheet, Text, TextInput, View } from 'react-native';
+import { notify } from '../lib/dialog';
 import { MOCK } from '../lib/supabase';
 import { Button } from '../ui/Button';
 import { TextField } from '../ui/TextField';
@@ -15,9 +16,9 @@ export function AuthScreen() {
   const run = async (fn: () => Promise<Result>) => {
     try {
       const { error } = await fn();
-      if (error) Alert.alert('Hata', error.message);
+      if (error) notify('Hata', error.message);
     } catch (e) {
-      Alert.alert('Hata', e instanceof Error ? e.message : 'Bilinmeyen hata');
+      notify('Hata', e instanceof Error ? e.message : 'Bilinmeyen hata');
     }
   };
 

@@ -2,14 +2,15 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Image, Pressable, Text, TextInput, View } from 'react-native';
 import { discover } from './api';
 import { CATEGORIES, CONDITIONS, type NearbyListing } from './types';
-import { useLocation } from './useLocation';
+import { LocationGate } from './LocationGate';
+import { changeLocation, useLocation } from './useLocation';
 
 const RADII = [1, 3, 5, 10, 25];
 
 export function DiscoverScreen({ onOpen }: { onOpen: (id: string, distanceM: number) => void }) {
-  const { coords, denied } = useLocation();
+  const { coords, state, district } = useLocation();
   const [items, setItems] = useState<NearbyListing[]>([]);
-  const [radius, setRadius] = useState(5);
+  const [radius, setRadius] = useState(10); // pilot: iki ilçe + komşular ~6 km
   const [category, setCategory] = useState<number | undefined>();
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
@@ -24,12 +25,16 @@ export function DiscoverScreen({ onOpen }: { onOpen: (id: string, distanceM: num
   }, [coords, radius, category, query]);
   useEffect(() => { load(); }, [load]);
 
-  if (denied) return <Text style={{ padding: 24 }}>Yakındaki ilanlar için konum izni gerekli.</Text>;
-  if (!coords) return <ActivityIndicator style={{ marginTop: 48 }} />;
+  if (state !== 'ready' || !coords) return <LocationGate state={state}>{null}</LocationGate>;
 
   return (
     <View style={{ flex: 1, paddingTop: 48 }}>
       <TextInput placeholder="Ara" value={query} onChangeText={setQuery} style={{ margin: 12, borderWidth: 1, padding: 8 }} />
+      {district && (
+        <Pressable onPress={changeLocation} accessibilityRole="button" accessibilityLabel={`Konum: ${district}, değiştir`}
+          style={{ minHeight: 48, justifyContent: 'center', paddingHorizontal: 12 }}>
+          <Text>📍 {district} ve çevresi · Değiştir</Text>
+        </Pressable>)}
       <View style={{ flexDirection: 'row', gap: 8, paddingHorizontal: 12 }}>
         {RADII.map((r) => (
           <Pressable key={r} onPress={() => setRadius(r)} accessibilityRole="button"
@@ -39,7 +44,7 @@ export function DiscoverScreen({ onOpen }: { onOpen: (id: string, distanceM: num
         ))}
       </View>
       <FlatList horizontal data={[{ id: 0, name: 'Tümü' }, ...CATEGORIES]} keyExtractor={(c) => String(c.id)}
-        style={{ flexGrow: 0, margin: 12 }}
+        style={{ flexGrow: 0, flexShrink: 0, minHeight: 48, margin: 12 }}
         renderItem={({ item: c }) => (
           <Pressable onPress={() => setCategory(c.id || undefined)} style={{ marginRight: 12 }}>
             <Text style={{ fontWeight: (category ?? 0) === c.id ? '700' : '400' }}>{c.name}</Text>
@@ -58,7 +63,7 @@ export function DiscoverScreen({ onOpen }: { onOpen: (id: string, distanceM: num
             {item.photo_url
               ? <Image source={{ uri: item.photo_url }} style={{ width: '100%', height: 200 }} />
               : <View style={{ width: '100%', height: 200, backgroundColor: '#eee' }} />}
-            <Text style={{ fontWeight: '700' }}>{item.price_try === 0 ? 'Ücretsiz' : `${item.price_try} ₺`}</Text>
+            <Text style={{ fontWeight: '700' }}>{item.price_try === 0 ? 'Ücretsiz' : `${item.price_try.toLocaleString('tr-TR')} ₺`}</Text>
             <Text>{item.title ?? CATEGORIES.find((c) => c.id === item.category_id)?.name}</Text>
             <Text>Durum: {CONDITIONS.find((c) => c.value === item.condition)?.label} · ~{Math.max(1, Math.round(item.distance_m / 100) / 10)} km</Text>
           </Pressable>)} />

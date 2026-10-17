@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import {
   ActivityIndicator, Alert, Dimensions, FlatList, Image, Pressable, ScrollView, Text, View,
 } from 'react-native';
+import { confirmDialog, notify } from '../lib/dialog';
 import { supabase } from '../lib/supabase';
 import { blockUser } from '../safety/api';
 import { ReportScreen } from '../safety/ReportScreen';
@@ -106,13 +107,10 @@ export function ListingDetailScreen({ listingId, distanceM, onBack, onMessage }:
   }
 
   function confirmBlock() {
-    Alert.alert('Satıcıyı engelle', 'Bu kullanıcının ilanlarını ve mesajlarını görmeyeceksin. Ona bildirim gitmez.', [
-      { text: 'Vazgeç', style: 'cancel' },
-      { text: 'Engelle', style: 'destructive', onPress: async () => {
-        try { await blockUser(item!.seller_id); onBack(); }
-        catch { Alert.alert('Engellenemedi', 'Tekrar dene.'); }
-      } },
-    ]);
+    confirmDialog('Satıcıyı engelle', 'Bu kullanıcının ilanlarını ve mesajlarını görmeyeceksin. Ona bildirim gitmez.', 'Engelle', async () => {
+      try { await blockUser(item!.seller_id); onBack(); }
+      catch { notify('Engellenemedi', 'Tekrar dene.'); }
+    });
   }
 
   return (

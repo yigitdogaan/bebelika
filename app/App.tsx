@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
-import { TabBar } from './src/ui/TabBar';
+import { Button, Platform, Text, View } from 'react-native';
 import type { Session } from '@supabase/supabase-js';
-import { supabase } from './src/lib/supabase';
+import { MOCK, supabase } from './src/lib/supabase';
 import { AuthScreen } from './src/auth/AuthScreen';
+import { saveAcquisitionSource } from './src/auth/source';
 import { DiscoverScreen } from './src/listings/DiscoverScreen';
 import { ListingDetailScreen } from './src/listings/ListingDetailScreen';
 import { ChatScreen } from './src/chat/ChatScreen';
 import { InboxScreen } from './src/chat/InboxScreen';
+import { AccountScreen } from './src/account/AccountScreen';
 import { CreateListingScreen } from './src/listings/CreateListingScreen';
 
-type Tab = 'kesfet' | 'mesaj' | 'ilan';
+type Tab = 'kesfet' | 'mesaj' | 'ilan' | 'profil';
 
 // Keşfet girişsiz gezilebilir olmalı (RLS izin veriyor); iskelette şimdilik giriş şart. TODO.
 export default function App() {
@@ -20,16 +21,26 @@ export default function App() {
   const [chat, setChat] = useState<string | null>(null);
 
   useEffect(() => {
+    // Web: CSS büyük harf dönüşümü Türkçe kuralını (i→İ, ı→I) ancak lang=tr ile uygular ("GİRİŞ YAP").
+    if (Platform.OS === 'web') document.documentElement.lang = 'tr';
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
     const { data } = supabase.auth.onAuthStateChange((_e, s) => setSession(s));
     return () => data.subscription.unsubscribe();
   }, []);
 
+  const uid = session?.user.id;
+  useEffect(() => { if (uid) saveAcquisitionSource(uid).catch(() => {}); }, [uid]);
+
   if (!session) return <AuthScreen />;
   return (
     <View style={{ flex: 1 }}>
+      {MOCK && (
+        <View accessibilityRole="summary" style={{ backgroundColor: '#fff1b8', paddingVertical: 4, paddingHorizontal: 12 }}>
+          <Text style={{ fontSize: 12, textAlign: 'center' }}>Demo verisi: Bu bir demodur, ilanlar kurgudur.</Text>
+        </View>)}
       <View style={{ flex: 1 }}>
-        {tab === 'ilan' ? <CreateListingScreen onDone={() => setTab('kesfet')} />
+        {tab === 'profil' ? <AccountScreen />
+          : tab === 'ilan' ? <CreateListingScreen onDone={() => setTab('kesfet')} />
           : chat ? <ChatScreen conversationId={chat} onBack={() => setChat(null)}
               onOpenListing={(id) => { setChat(null); setOpen({ id, d: 0 }); }} />
           : open ? <ListingDetailScreen listingId={open.id} distanceM={open.d || undefined}
@@ -37,14 +48,12 @@ export default function App() {
           : tab === 'mesaj' ? <InboxScreen onOpen={(id) => setChat(id)} />
           : <DiscoverScreen onOpen={(id, d) => setOpen({ id, d })} />}
       </View>
-      <TabBar
-        sekmeler={[
-          { anahtar: 'kesfet', baslik: 'Keşfet', secili: tab === 'kesfet', onPress: () => { setChat(null); setOpen(null); setTab('kesfet'); } },
-          { anahtar: 'mesaj', baslik: 'Mesajlar', secili: tab === 'mesaj', onPress: () => { setChat(null); setOpen(null); setTab('mesaj'); } },
-          { anahtar: 'ilan', baslik: 'İlan ver', secili: tab === 'ilan', onPress: () => setTab('ilan') },
-          { anahtar: 'cikis', baslik: 'Çıkış', secili: false, onPress: () => { supabase.auth.signOut(); } },
-        ]}
-      />
+      <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 12 }}>
+        <Button title="Keşfet" onPress={() => { setChat(null); setOpen(null); setTab('kesfet'); }} />
+        <Button title="Mesajlar" onPress={() => { setChat(null); setOpen(null); setTab('mesaj'); }} />
+        <Button title="İlan ver" onPress={() => setTab('ilan')} />
+        <Button title="Profil" onPress={() => { setChat(null); setOpen(null); setTab('profil'); }} />
+      </View>
     </View>
   );
 }
