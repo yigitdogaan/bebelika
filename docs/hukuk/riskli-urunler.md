@@ -26,6 +26,8 @@ Kategoriye özel kısa gerekçe (tek cümle):
 | Bebek yuvası, uyku pozisyoneri, eğimli uyku ürünü | "Güvenli uyku riski nedeniyle bu ürünler yayınlanmıyor." |
 | Kazaya karışmış oto koltuğu / kırık güvenlik ürünü | "Hasarlı veya kazaya karışmış güvenlik ürünleri satılamaz." |
 | Geri çağrılmış/toplatılmış ürün | §6 |
+| Biberon, süt saklama kabı (pilot, bkz. biberon-pompa-karari.md) | "Ağza ve süte temas eden ürünler hijyen nedeniyle ikinci elde satılamaz." |
+| Sağma pompası ve parçaları (pilot) | "Sağlık ve süt sağma ürünleri pilot dönemde Bebelika'da yer almıyor." |
 | Sahte/taklit marka | "Orijinal olmayan ürünler yayınlanamaz." |
 Not: Kategori listesi politika kararıdır; yasal zorunluluk olup olmadığı TEYİT. Engel metnine "yasa gereği" yazılmaz (teyit olana kadar).
 Anahtar kelime filtresi yanlış pozitif üretir; engel yerine "ilanı gözden geçir" akışı ve itiraz yolu bulunmalı (Ürün/CTO kararı).
@@ -53,9 +55,9 @@ Not: Yürüteç için ayrıca merdiven/düşme riski notu; kategori yasaklanmas�
 ### 3.4 Biberon, kaşık, tabak, saklama kabı
 Uyarı: "Çatlak, çizik veya kokusu olan ürün satılamaz."
 Beyan: "☐ Çatlak/çizik yok, temizlendi, BPA içermediğini biliyorum veya belirtmedim."
-Not: Biberon MVP'de yasaklanabilir, karar Ürün ekibinde (politika.md §3.2).
+Not: GÜNCEL (17.10.2026): biberon pilotta YASAK (biberon-pompa-karari.md); bu kart yalnız kaşık/tabak/saklama dışı gereçler için geçerli.
 
-### 3.5 Elektrikli ürünler (sağma pompası, bebek monitörü, ısıtıcı, sterilizatör)
+### 3.5 Elektrikli ürünler (bebek monitörü, ısıtıcı, sterilizatör). Sağma pompası pilotta YASAK (biberon-pompa-karari.md); aşağıdaki pompa notu avukat teyidi sonrası geçerli olur.
 Uyarı: "Adaptör ve kablo eksiksiz olmalı, ürün CE işaretli ve çalışır durumda olmalı."
 Not: Sağma pompasının ağız temas eden parçaları (huni, valf) ikinci elde kullanılmamalı, kullanılmamış/yenisi olmalı (hijyen); bu kısıt politika önerisidir (TEYİT).
 Beyan: "☐ Çalışır durumda, tüm kablo ve adaptör var. Ağıza/süte temas eden parçalar yeni veya değiştirildi."

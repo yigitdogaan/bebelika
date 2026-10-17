@@ -88,3 +88,7 @@ Süre/ücret tahminleri doğrulanmamıştır; avukattan teklif alınmalıdır.
 - [ ] Tüzel kişilik/vergi mükellefiyeti durumunu avukata bildirmek.
 - [ ] Avukat sözleşmesi ve ücret onayı.
 - [ ] Paketteki belgeleri avukata iletme onayı (belgeler iç taslaktır; gizlilik taahhüdü sonrası).
+
+## 7. Ek belgeler (2. dalga, 17.10.2026)
+Pakete eklenir: topluluk-kurallari.md, biberon-pompa-karari.md, magaza-ve-saklama.md, ifade-kontrolu.md; ayrıca Can'ın magaza-metni.md ve sss.md dosyaları.
+Ek avukat soruları: (a) sağma pompası TİTCK/tıbbi cihaz sınıfı ve ikinci el satış; (b) otomatik/ihtiyati gizleme için sözleşme dayanağı (Topluluk Kuralları m.8); (c) sozlesme-taslak 3 yıl ile moderasyon.md 2 yıl saklama çelişkisi; (d) saklama-imha politikası/VERBİS zorunluluğu ve imha periyodu üst sınırı; (e) Apple 4.8 ve 5.1.1(v) güncel metin; (f) ban hash'inin KVKK uygunluğu.
