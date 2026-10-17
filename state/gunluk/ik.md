@@ -1,3 +1,14 @@
+## 2026-10-17 20:30 (UTC+3)
+✅ Biten: Kurucu listesi v0.2 (Vercel demo #1, kanal kararı işlendi) → docs/ik/kurucu-listesi.md
+✅ Biten: Pilot başlangıç kontrol listesi (taslak) → docs/ik/pilot-baslangic.md
+✅ Biten: Destek planı güncellemesi (destek e-postası alan adına bağlı; kurucu kanalı #ceo-rapor ve #onay) → docs/ik/destek-plani.md
+✅ Biten: Döngü 10 sonrası kuyruk ve verim notu → docs/ik/kuyruk-verim.md
+🔨 Yarım: —
+🧭 Karar: Kurucu bildirim kanalı #ceo-rapor ve #onay (Defne kararı 2026-10-17 ile uyumlu) — kurucu listesinden çıkarıldı, kurucuya ek iş yok.
+🧭 Karar: Pilot kontrol listesinde ücretli/hesap maddeleri kurucu işi olarak işaretlendi; ekip bunları sormadan ilerler — CLAUDE.md kuralı.
+❓ Bekliyorum: Murat: C1 4 saat SLA metni, avukat paketi (K5); Kerem: ilk hafta nöbet ve erişilebilirlik; Defne: alan adı gelmeden kullanıcı destek soruları kanalı.
+💡 Öneri: Kurucu Supabase ve Vercel hesaplarını açınca CTO P1 doğrulamaları (migration, tarayıcı testi) en değerli iş; sonra alan adı ve destek e-postası.
+
 ## 2026-10-17 19:56 (UTC+3)
 ✅ Biten: Kadro analizi (yeni rol kararı, işe alım yok) → docs/ik/kadro.md
 ✅ Biten: Pilot destek ve moderasyon vardiya/SLA planı (taslak) → docs/ik/destek-plani.md

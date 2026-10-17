@@ -5,7 +5,7 @@ Girdi: docs/hukuk/moderasyon.md §2, §4-6, §9; docs/tasarim/s19-s20.md; docs/i
 
 ## 1. Kapsam
 - **Moderasyon kuyruğu** (şikâyet, otomatik gizleme, itiraz): pilotta Kerem + Murat (moderasyon.md V1).
-- **Kullanıcı destek soruları** (doğrulama, buluşma, itiraz sonucu): destek e-postası henüz yok (alan adı kurucu işi, bkz. docs/ik/kurucu-listesi.md). Geçici: CEO ve Can (varsayım, matris.md §4).
+- **Kullanıcı destek soruları** (doğrulama, buluşma, itiraz sonucu): destek e-postası alan adı alınana kadar YOK (Defne kararı, 2026-10-17; alan adı kurucu işi, bkz. docs/ik/kurucu-listesi.md #6). Geçici: CEO ve Can (varsayım, matris.md §4).
 
 ## 2. Sorumluluk tablosu (öneri)
 
@@ -21,12 +21,12 @@ Girdi: docs/hukuk/moderasyon.md §2, §4-6, §9; docs/tasarim/s19-s20.md; docs/i
 ## 3. Nöbet ve kontrol sıklığı (öneri)
 - **Kuyruk kontrolü:** iş günü en az 2 kez (sabah ve akşam). Hafta sonu kuyruk yalnız C1/C3 bildirimleri için kontrol edilir.
 - **Haftalık dönüşümlü nöbetçi:** ilk hafta Kerem, yedek Murat; ikinci hafta yer değiştirir. Nöbetçi haftalık metrikleri CEO raporuna yazar.
-- **Kurucu kanalı:** C1/C3 bildirimleri için kurucuya ulaşım kanalı teyit edilmeli (kurucu listesi #10). Push bildirimi Apple Developer hesabına bağlı; hesap açılana kadar e-posta/Slack bildirimi kullanılır (varsayım).
+- **Kurucu kanalı (karar, Defne 2026-10-17):** C1/C3 ve kurucu bildirimleri #ceo-rapor ve #onay üzerinden gider. Push bildirimi Apple Developer hesabına bağlı; hesap açılana kadar bu Slack kanalları kullanılır.
 
 ## 4. Riskler (kararsız, teyit gerekli)
 1. **C1 için 4 saat inceleme SLA'sı insan nöbeti olmadan garanti edilemez.** Agent'lar sürekli çalışmıyor; gece ve hafta sonu kuyruk boşta kalabilir. Gizleme tarafı zaten kodlandı: C1/C2 şikâyeti ilanı `hidden_auto` yapar (docs/teknik/sikayet-engel-notu.md §2, migration 0004). Kalan açık nokta inceleme süresi: 4 saat, nöbet yoksa karşılanmaz. Öneri: Murat "4 saat" değerini iç hedef mi taahhüt mü olduğunu netleştirsin; Ece gizleme kaydının kuyruğa öncelikli düşmesini teyit etsin.
 2. **Murat ve Kerem'in erişilebilirliği** bilinmiyor; nöbet tablosu bu teyide bağlı.
-3. **Destek e-postası yok**; S19/S20 "Destek" butonu adres bekliyor.
+3. **Destek e-postası yok**; S19/S20 "Destek" butonu adres bekliyor. Alan adı gelene kadar kullanıcı destek soruları için bir kanal kararı YOK (açık nokta, aşağıda §6).
 
 ## 5. Haftalık ölçümler
 moderasyon.md §6'dan: şikâyet/ilan oranı (pilot eşiği ≤ %3), tür dağılımı, SLA karşılama oranı, itiraz oranı; ek olarak destek talebi sayısı (kadro.md tetikleyicisi: > 30/hafta).
@@ -35,4 +35,5 @@ moderasyon.md §6'dan: şikâyet/ilan oranı (pilot eşiği ≤ %3), tür dağı
 - Murat: 4 saatlik C1 inceleme SLA'sının metni (iç hedef mi, taahhüt mü?).
 - Ece: C1/C2 `hidden_auto` kaydının kuyrukta öncelikli görünmesi.
 - Kerem: nöbet ilk hafta teyidi ve Kerem + Murat erişilebilirliği.
-- Defne: destek e-postası ve kurucu bildirim kanalı.
+- Defne: kurucu bildirim kanalı KARARLANDI (#ceo-rapor, #onay); destek e-postası alan adına bağlı.
+- Defne (açık): alan adı gelmeden kullanıcı destek soruları hangi kanaldan alınacak? Varsayım: uygulama içi ilan/sohbet üzerinden (kesin değil).
