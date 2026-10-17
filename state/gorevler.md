@@ -53,13 +53,28 @@ Durumlar: [ ] bekliyor · [~] sürüyor · [x] bitti · [!] engelli
 [x] P3 | ik | Çalışma düzeni şablonları → docs/ik/calisma-duzeni.md
 [x] P3 | ik | Kurucu listesi → docs/ik/kurucu-listesi.md
 
-## Döngü 10 önerileri
-[ ] P1 | cto | Mock seed'i Selin'in demo-veri.md'sine göre güncelle; yer tutucu foto
-[ ] P1 | cto | Tarayıcıda elle gezinme testi (demo-senaryo.md adımlarıyla)
+## Döngü 10 (kurucu önceliği: açılıp gezilebilen, örnek verili ilk sürüm — doğrulama + içerik uyumu)
+[ ] P1 | cto | Mock seed'i Selin'in demo-veri.md'sine göre güncelle; yer tutucu foto | demo-veri.md hazır
+[ ] P1 | cto | Tarayıcıda elle gezinme testi (demo-senaryo.md adımlarıyla), bulguları docs/teknik/ altına yaz
 [ ] P2 | cto | Kategori migration (4 yeni slug), ilan kaynak etiketi, UTM/davet kodu alanı; aydınlatma tablosu-şema karşılaştırması (Murat'a)
-[ ] P2 | cto | Konum rıza ekranı ve hesap silme akışı (SSS S13/S15 buna bağlı)
-[ ] P2 | hukuk | Topluluk Kuralları metni, S19/S20 kullanıcı metinleri, mağaza veri formları, saklama-imha taslağı; buluşma ipuçları/mağaza metni/SSS ifade kontrolü; biberon ve pompa kararı
-[ ] P2 | tasarim | Kontrast ölçümü; S13/S14/S15 detay ekranları; mağaza ekran görüntüleri (Can ile)
-[ ] P2 | urun | mvp.md kategori güncellemesi; F5/F6 kabul kriterleri mock'a göre; Can'a "ücretsiz/pilot bölge" cevabı
-[ ] P3 | pazarlama | Kadıköy/Ataşehir grup listesi ve izin mesajı taslağı; hafta 4 kanal hedefi
-[ ] P3 | ik | Destek e-postası ve kurucu bildirim kanalı (Defne kararı); C1 SLA teyidi (Murat)
+[ ] P2 | cto | Konum rıza ekranı ve hesap silme akışı (SSS S13/S15 buna bağlı); akislar.md §14a kalanlar (#5,#6,#9,#10,#12)
+[ ] P1 | tasarim | Demo gezinti ekran görüntüleri (scripts/ekran.cjs) → docs/tasarim/ekranlar/; görsel kalite kontrolü
+[ ] P2 | tasarim | Kontrast ölçümü (marka.md paleti) → docs/tasarim/kontrast.md
+[ ] P2 | tasarim | S13/S14/S15 detay ekranları (konum rıza, hesap silme, profil)
+[ ] P3 | tasarim | Mağaza ekran görüntüsü planı (Can ile) → docs/tasarim/magaza-ekranlari.md
+[ ] P1 | urun | mvp.md kategori güncellemesi (10 ana kategori); demo-senaryo.md'yi mock seed'e eşle
+[ ] P2 | urun | F5/F6 kabul kriterlerini mock'a göre yaz; Can'a "ücretsiz/pilot bölge" cevabı (#genel)
+[ ] P2 | urun | Demo geri bildirim soruları → docs/urun/demo-geri-bildirim.md
+[ ] P3 | urun | Backlog RICE'ı demo bulgularına göre güncelle
+[ ] P2 | hukuk | Topluluk Kuralları metni, S19/S20 kullanıcı metinleri → docs/hukuk/
+[ ] P2 | hukuk | Biberon ve sağma pompası kararı (Kerem'in yasak önerisine teyit/itiraz)
+[ ] P2 | hukuk | Buluşma ipuçları / mağaza metni / SSS ifade kontrolü; C1 SLA teyidi
+[ ] P3 | hukuk | Mağaza veri formları ve saklama-imha politikası taslağı
+[ ] P2 | pazarlama | Kadıköy/Ataşehir grup listesi ve izin mesajı taslağı → docs/pazarlama/
+[ ] P3 | pazarlama | Hafta 4 kanal bazlı edinim hedefi (pilot-esikler.md açık soru 1)
+[ ] P2 | pazarlama | Demo tanıtım metni: kurucunun paylaşabileceği kısa "demoyu dene" mesajı
+[ ] P3 | pazarlama | Marka/alan adı alternatifleri ve kontrol listesi (kurucu onayı için)
+[ ] P2 | ik | Destek e-postası/kurucu bildirim kanalı kararını destek-plani.md'ye işle
+[ ] P3 | ik | Pilot başlangıç kontrol listesi → docs/ik/pilot-baslangic.md
+[ ] P3 | ik | kurucu-listesi.md güncelle (Vercel demo, Supabase, avukat vb. sıralı)
+[ ] P3 | ik | Döngü 10 sonrası kuyruk/verim notu → docs/ik/

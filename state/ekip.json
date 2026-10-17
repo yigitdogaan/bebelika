@@ -14,8 +14,8 @@
     "emoji": "📦",
     "ikon": ":package:",
     "ust": "ceo",
-    "durum": "bosta",
-    "is": ""
+    "durum": "aktif",
+    "is": "mvp kategori güncellemesi"
   },
   "tasarim": {
     "ad": "Selin",
@@ -23,8 +23,8 @@
     "emoji": "🎨",
     "ikon": ":art:",
     "ust": "urun",
-    "durum": "bosta",
-    "is": ""
+    "durum": "aktif",
+    "is": "Demo ekran görüntüleri"
   },
   "cto": {
     "ad": "Ece",
@@ -32,8 +32,8 @@
     "emoji": "💻",
     "ikon": ":computer:",
     "ust": "ceo",
-    "durum": "bosta",
-    "is": ""
+    "durum": "aktif",
+    "is": "Mock seed eşleme"
   },
   "hukuk": {
     "ad": "Murat",
@@ -41,8 +41,8 @@
     "emoji": "⚖️",
     "ikon": ":scales:",
     "ust": "ceo",
-    "durum": "bosta",
-    "is": ""
+    "durum": "aktif",
+    "is": "Topluluk Kuralları metni"
   },
   "pazarlama": {
     "ad": "Can",
@@ -50,8 +50,8 @@
     "emoji": "📣",
     "ikon": ":mega:",
     "ust": "ceo",
-    "durum": "bosta",
-    "is": ""
+    "durum": "aktif",
+    "is": "Grup listesi taslağı"
   },
   "ik": {
     "ad": "Zeynep",
@@ -59,7 +59,7 @@
     "emoji": "🤝",
     "ikon": ":handshake:",
     "ust": "ceo",
-    "durum": "bosta",
-    "is": ""
+    "durum": "aktif",
+    "is": "Destek e-postası kararı"
   }
 }

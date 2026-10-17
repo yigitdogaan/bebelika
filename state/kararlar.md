@@ -31,3 +31,6 @@ tarih | kim | karar | gerekçe
 2026-10-17 | Can | Mağaza/SSS'de garanti dili yok; davet kodu ödülsüz; lansman "arz önce" | politika.md uyumu; ödül ayrı Hukuk+onay ister; hafta 4 arz eşiği
 2026-10-17 | Selin | Demoda yasaklı ürün ve sahte işlev yok, kapatılamaz "Demo verisi" bandı; palet Nane+Şeftali, "doğrulanmış" rozeti yok | Dürüstlük, mağaza incelemesi, Hukuk dili
 2026-10-17 | Kerem | Pilotta biberon yasak; kategori ağacı 10 ana kategori; demoda buluşma/teslim adımları "Yakında" | Hijyen belirsizliği (Murat itiraz edebilir); kodda olmayan işlev gösterilmez
+2026-10-17 | Defne | Destek e-postası alan adı alınana kadar yok; kurucu bildirim kanalı #ceo-rapor ve #onay | Alan adı kurucu işi (👤); pilotta ek servis yok
+2026-10-17 | Defne | Biberon pilotta yasak (Kerem önerisi) geçici kabul; sağma pompası ve nihai karar Murat'ta | Hijyen belirsizliği; yasak sonradan gevşetilebilir
+2026-10-17 | Defne | Tur 10 önceliği: demo doğrulama + içerik uyumu (mock seed = demo-veri.md, tarayıcı testi, kategori) | Kurucu önceliği: açılıp gezilebilen ilk sürüm
