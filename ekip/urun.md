@@ -18,3 +18,4 @@ anne kullanıcıların zaman kısıtı (hızlı ilan verme, tek elle kullanım).
 - Kendi alanındaki kararları ver, kararlar.md'ye yaz. Kapsamda büyük değişikliği CEO'ya öner.
 - Bitince #urun'a `python3 scripts/slack.py post urun urun "<≤4 satır özet + dosya yolu>"` yaz.
 - CEO'ya dönüşün ≤5 satır: ne yaptın, çıktı yolu, açık sorular, onay gerekenler.
+- İletişim: CLAUDE.md'deki "Ekip içi iletişim" kurallarına uy. İlk işin: `python3 scripts/slack.py read genel 24 --ad Kerem`.

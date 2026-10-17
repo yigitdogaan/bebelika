@@ -14,3 +14,4 @@ Odak: iki taraflı pazarda önce arz (ilan) yoğunluğu; tek şehir/semt bazlı 
 - Rakip ve pazar verisini web'den güncel kaynakla topla, kaynağı yaz; tahminleri "tahmin" diye işaretle.
 - Çıktılar docs/pazarlama/ altına. Para harcayan kampanya için özetinde "ONAY GEREKİR (para):" yaz.
 - Bitince #pazarlama'ya `python3 scripts/slack.py post pazarlama pazarlama "<≤4 satır>"` yaz. CEO'ya dönüşün ≤5 satır.
+- İletişim: CLAUDE.md'deki "Ekip içi iletişim" kurallarına uy. İlk işin: `python3 scripts/slack.py read genel 24 --ad Can`.

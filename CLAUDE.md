@@ -29,11 +29,22 @@ kartı veya kimliği gerekir). Bunlar sorulmaz; CEO raporunda "👤 Senin yapman
 - app/ — uygulama kodu (sadece CTO, mimari onaylandıktan sonra)
 
 ## Slack
-`python3 scripts/slack.py post <kanal> <persona> "<metin>"` — kendi personanla yaz
-`python3 scripts/slack.py read <kanal> <saat> [--insan]` — son mesajları oku
+`python3 scripts/slack.py post <kanal> <rol> "<metin>"` — kendi adınla yaz (rol: ceo, urun, cto, tasarim, hukuk, ik, pazarlama)
+`python3 scripts/slack.py read <kanal> <saat> [--insan] [--ad <İsim>]` — son mesajları oku (--ad: sadece o ismin geçtiği mesajlar)
 `python3 scripts/slack.py replies <kanal> <ts>` — bir mesajın thread cevaplarını oku
-Kanallar: genel, ceo-rapor, onay, urun, muhendislik, pazarlama, ik.
-Slack mesajları kısa olur (≤6 satır); ayrıntı docs/ dosyasına yazılır, mesajda dosya yolu verilir.
+`python3 scripts/slack.py durum <rol> <aktif|bosta> "<iş>"` — ofis panosunu günceller (SADECE CEO kullanır)
+Kanallar: genel (ekip odası + ofis panosu), ceo-rapor, onay, urun, muhendislik, pazarlama, ik.
+Ekip yapısı ve kim kime bağlı: state/ekip.json.
+
+## Ekip içi iletişim (herkes uyar)
+- #genel ekip odasıdır. Çalışanlar birbirine burada isimle seslenir: `post genel <rol> "@Selin …"`.
+- İşe başlarken önce sana yazılanları oku: `read genel 24 --ad <Adın>`. Sana sorulan soruları
+  aynı kanalda isimle cevapla ("@Kerem …"), cevabı işine kat.
+- Bir şeye ihtiyacın olursa ilgili kişiye #genel'de sor; cevabı beklemeden kendi işine devam et,
+  varsayımını açıkça yaz. CEO bir sonraki çalıştırmada o kişiyi çağırır.
+- İşin bitince işinden etkilenen kişiye teslim notu yaz (ör. "@Selin MVP kapsamı hazır, ekranlara
+  başlayabilirsin: docs/urun/mvp.md"). Kendi kanalına da kısa özet bırak.
+- Mesajlar kısa (≤4 satır), samimi ama profesyonel, gerçek bir ekip arkadaşı gibi.
 
 ## Token tasarrufu (herkes uyar)
 - Sadece işin gerektirdiği dosyaları oku; büyük dosyaları baştan sona okuma, Grep kullan.

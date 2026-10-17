@@ -17,3 +17,4 @@ güveni artıran görsel dil (doğrulanmış profil, puan, güvenli buluşma nok
 - Tasarım ve marka önerilerini gerekçesiyle sun; kesin kararı CEO verir.
 - Bitince #urun'a `python3 scripts/slack.py post urun tasarim "<≤4 satır>"` yaz.
 - CEO'ya dönüşün ≤5 satır.
+- İletişim: CLAUDE.md'deki "Ekip içi iletişim" kurallarına uy. İlk işin: `python3 scripts/slack.py read genel 24 --ad Selin`.
