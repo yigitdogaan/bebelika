@@ -40,6 +40,22 @@ Not: Buluşma önerme (F5) ve teslim onayı (F6) henüz kodda yok (gorevler.md).
 ## 5. Şimdi değil
 Gerçek push, gerçek Supabase, harita, ödeme, buluşma/teslim akışının mock'u (önce kod).
 
+## 5a. Seed eşlemesi (v0.2, tur 10)
+Kaynak: app/src/lib/mock/seed.ts (Ece'nin 12 ilanı, 17.10 19:58 sürümü) ve docs/tasarim/demo-veri.md. Seed demo-veri.md'ye geçince sağ sütun geçerli olur.
+| Adım | Mevcut seed (Ece) | demo-veri.md (hedef) |
+|---|---|---|
+| 3 Filtre | araba: l1 travel sistem (0,7 km) | araba: #1 katlanır puset (~0,8 km) |
+| 4 Boş sonuç | Arama "kızak" ve mesafe 1 km: sonuç yok | aynı; kategori filtresi uyku + ≤1 km boş çıkar (park yatak ~3,5 km) |
+| 5 Detay | l2 mama sandalyesi (beyanı açıklamada yok) | #2; açıklamada fren/kemer beyanı var |
+| 6 Mesaj | c1 (l1, pazarlık+buluşma yeri) | Senaryo A (#1) |
+| 7 Gelen kutusu | c1, c2 (okunmamış), c3 (eski) | A, B, C; Alıyorum/Satıyorum süzgeci |
+| 9 Şikâyet | herhangi ilan/sohbet | Senaryo B: IBAN uyarısı sonrası menü |
+Uyumsuzluklar (Ece'ye iletildi):
+1. Seed l9 "Biberon seti" ve l5 "Elde süt pompası": pilotta biberon yasak kararım (kategoriler.md §4) ve pompa hijyen sorusu Murat'ta; demo yasaklı/belirsiz ürün göstermemeli (kabul 7). demo-veri.md'de ikisi de yok.
+2. Seed kategori numaraları (1-7) migration'daki 7 slug'a göre; 4 yeni slug gelince sıra güncellenmeli.
+3. mock-notu.md "satıcı 1,5 sn sonra otomatik cevap verir" diyor, demo-veri.md §4 "karşı yanıt simüle edilmez". Karar (Ürün): sahte yanıt YOK; demo yalnız hazır sohbetleri gösterir. Kurucu "Hâlâ var mı?" yazınca cevap gelmemesi şaşırtır; çözüm: mesaj altında "Demo: satıcı yanıtı yok" notu.
+4. Seed'de sohbet c1 mesajı "adres yerine metro çıkışı" tarzı güvenli buluşma örneği içeriyor; iyi, korunmalı.
+
 ## 6. Açık sorular
 - Ece: buluşma önerisi/teslim onayının mock'u mümkün mü?
 - Selin: demo-veri.md'deki 3 sohbet senaryosu 6. adımı kapsıyor mu?

@@ -8,7 +8,7 @@ Sahip: Kerem (Ürün) | Tarih: 2026-10-16 | Güncelleme: 2026-10-17 (ONAY-002) |
 - Varsayımlar (doğrulanmadı, pilotta test edilecek):
   - A1: Platform/teknoloji seçimi CTO kararıdır, burada kapsam dışı.
   - A2: Birincil kullanıcı anne; zamanı kısıtlı, çoğunlukla tek elle, bebek kucakta kullanır.
-  - A3: Kategoriler bebek odaklı (giyim, araba, mama sandalyesi, oyuncak vb.); liste Tasarım+Ürün ile netleşir.
+  - A3: 10 ana kategori (kategoriler.md): giyim, araba, oto-koltugu*, mama-sandalyesi, uyku, oyuncak, bakim*, anne*, kitap*, diger (*yeni slug; migration Ece). Mevcut 'beslenme' slug'ı mama-sandalyesi ("Mama sandalyesi ve beslenme gereçleri") ile birleşir; yasaklı gıdayla karışmasın. Oto koltuğu/beşik/park yatak için beyan alanı zorunlu. Pilotta biberon YASAK (Murat teyidi bekliyor).
   - A4: Ödeme uygulama dışında, buluşmada yapılır (uygulama aracılık etmez).
   - A5: KVKK, ürün güvenliği, yasaklı ürün kuralları Hukuk'tan (Murat) gelecek; burada varsayılmaz.
 - North Star: haftalık TAMAMLANAN teslim sayısı (iki tarafın "teslim edildi" onayı).
@@ -74,6 +74,8 @@ Kabul:
 - Sohbetten "buluşma öner": saat + kürasyonlu halka açık nokta listesi (AVM, metro çıkışı vb.).
 - Karşı taraf kabul eder/değiştirir; kabulde iki tarafa hatırlatma.
 - Tam adres paylaşımı gerekmez; güvenlik ipuçları kartı gösterilir.
+- Demo (mock): kodda yok. Sohbette buluşma bilgisi STATİK mesaj olarak görünür, Kabul/Reddet butonu yok, "Yakında" yazar (sahte işlev yok).
+- Kod gelince test: öneri → karşı taraf kabul/değiştir → iki tarafa hatırlatma; noktalar yalnız halka açık yerler; öneri sohbette kayıtlı kalır.
 
 ### F6 Teslim onayı (P0)
 Hikâye: Taraflar olarak işlemin bittiğini net işaretlemek isteriz.
@@ -81,6 +83,8 @@ Kabul:
 - Buluşma saatinden sonra iki tarafa "Teslim edildi mi?" sorulur.
 - İki onayda ilan "verildi" olur; tek taraf onayı için 48 saat sonra hatırlatma.
 - "Buluşma olmadı" seçeneği; ilan yeniden aktif olur.
+- Demo (mock): kodda yok; "Yakında" etiketi.
+- Kod gelince test: tek taraf onayında ilan açık kalır, 48 sa sonra hatırlatma; iki onayda "verildi"; "olmadı" ilanı aktife döndürür ve bekleyen onay isteğini iptal eder.
 
 ### F7 Karşılıklı puanlama (P1)
 Hikâye: Kullanıcı olarak karşı tarafın güvenilirliğini görmek isterim.
