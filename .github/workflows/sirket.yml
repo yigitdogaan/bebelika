@@ -2,7 +2,7 @@ name: Bebelika Şirket Döngüsü
 
 on:
   schedule:
-    - cron: "17 6-18 * * *"   # İstanbul saatiyle 09:17-21:17 arası, her saat
+    - cron: "17 6-18/2 * * *"   # İstanbul 09:17-21:17 arası, 2 saatte bir
   workflow_dispatch:
 
 permissions:
@@ -15,60 +15,136 @@ concurrency:
   group: sirket-dongusu
   cancel-in-progress: false
 
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+  CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1"
+  ARACLAR: "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(python3 scripts/slack.py:*),Bash(date:*),Bash(cd:*),Bash(ls:*),Bash(npm:*),Bash(npx:*),Bash(node:*)"
+  KAYDET: |
+    git config --unset-all http.https://github.com/.extraheader || true
+    git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+    git config user.name "bebelika-ofis"
+    git config user.email "ofis@bebelika.local"
+    git add -A -- . ':!.claude' ':!**/node_modules' ':!**/dist' ':!**/.expo'
+    git diff --cached --quiet && exit 0
+    git commit -m "$MESAJ $(TZ=Europe/Istanbul date '+%d.%m.%Y %H:%M')"
+    for i in 1 2 3 4 5 6; do
+      git pull --rebase -X theirs origin main && git push origin HEAD:main && exit 0
+      sleep $((RANDOM % 15 + 5))
+    done
+    exit 1
+
 jobs:
-  dongu:
+  planla:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    env:
-      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-      CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1"
+    timeout-minutes: 20
+    outputs:
+      roller: ${{ steps.roller.outputs.roller }}
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Ekibi işe başlat
-        run: mkdir -p .claude/agents && cp ekip/*.md .claude/agents/
-
-      - name: CEO döngüsü
+        with: { ref: main, fetch-depth: 0 }
+      - name: Defne turu planlıyor
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          show_full_output: true
           prompt: |
-            prompts/ceo-dongu.md dosyasını oku ve oradaki iş döngüsünü eksiksiz uygula.
-            Tarih/saat için `date -u` kullan; İstanbul saati = UTC+3.
-            Alt-agent'ları ASLA arka planda başlatma; her birini sonucunu bekleyerek sırayla çağır.
-            Döngü HER ZAMAN #ceo-rapor'a rapor göndererek biter.
+            prompts/planla.md dosyasını oku ve eksiksiz uygula. Tarih için `date -u` (İstanbul = UTC+3).
           claude_args: >-
-            --model sonnet
-            --max-turns 60
-            --allowedTools "Read,Write,Edit,Glob,Grep,Task,WebSearch,WebFetch,Bash(python3 scripts/slack.py:*),Bash(date:*),Bash(cd:*),Bash(ls:*),Bash(npm:*),Bash(npx:*),Bash(node:*)"
+            --model sonnet --max-turns 50 --allowedTools "${{ env.ARACLAR }}"
+      - id: roller
+        if: always()
+        run: echo "roller=$(python3 -c 'import json;r=json.load(open("state/aktif.json"));print(json.dumps([x for x in r if x!="ceo"]))' 2>/dev/null || echo '[]')" >> "$GITHUB_OUTPUT"
+      - name: Kaydet
+        if: always()
+        env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}", MESAJ: "Planlama" }
+        run: bash -c "$KAYDET"
 
+  calis:
+    needs: planla
+    if: needs.planla.outputs.roller != '' && needs.planla.outputs.roller != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        rol: ${{ fromJSON(needs.planla.outputs.roller) }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: ${{ matrix.rol }} çalışıyor
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            ROL = ${{ matrix.rol }}
+            prompts/calisan.md dosyasını oku ve eksiksiz uygula. Tarih için `date -u` (İstanbul = UTC+3).
+          claude_args: >-
+            --model ${{ (matrix.rol == 'ik' || matrix.rol == 'pazarlama') && 'haiku' || 'sonnet' }}
+            --max-turns 150 --allowedTools "${{ env.ARACLAR }}"
+      - name: Kaydet
+        if: always()
+        env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}", MESAJ: "${{ matrix.rol }}" }
+        run: bash -c "$KAYDET"
+
+  cevapla:
+    needs: [planla, calis]
+    if: always() && needs.planla.outputs.roller != '' && needs.planla.outputs.roller != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        rol: ${{ fromJSON(needs.planla.outputs.roller) }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, fetch-depth: 0 }
+      - name: ${{ matrix.rol }} toplantıda
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            ROL = ${{ matrix.rol }}
+            prompts/cevapla.md dosyasını oku ve uygula.
+          claude_args: >-
+            --model haiku --max-turns 15 --allowedTools "${{ env.ARACLAR }}"
+      - name: Kaydet
+        if: always()
+        env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}", MESAJ: "${{ matrix.rol }} toplantı" }
+        run: bash -c "$KAYDET"
+
+  rapor:
+    needs: [planla, calis, cevapla]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, fetch-depth: 0 }
+      - name: Defne raporluyor
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            prompts/rapor.md dosyasını oku ve eksiksiz uygula. Tarih için `date -u` (İstanbul = UTC+3).
+          claude_args: >-
+            --model sonnet --max-turns 40 --allowedTools "${{ env.ARACLAR }}"
       - name: Ofis panosunu sıfırla
         if: always()
         run: |
           python3 - <<'PY' || true
-          import json
+          import json, subprocess
           p = "state/ekip.json"
           e = json.load(open(p, encoding="utf-8"))
-          if any(k.get("durum") == "aktif" for k in e.values()):
-              for k in e.values():
-                  k["durum"], k["is"] = "bosta", ""
-              json.dump(e, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-              import subprocess; subprocess.run(["python3", "scripts/slack.py", "durum", "ceo", "bosta"])
+          for k in e.values():
+              k["durum"], k["is"] = "bosta", ""
+          json.dump(e, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+          open("state/aktif.json", "w").write("[]")
+          subprocess.run(["python3", "scripts/slack.py", "durum", "ceo", "bosta"])
           PY
-
-      - name: Şirket hafızasını kaydet
+      - name: Kaydet
         if: always()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --unset-all http.https://github.com/.extraheader || true
-          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
-          git config user.name "bebelika-ofis"
-          git config user.email "ofis@bebelika.local"
-          git add -A -- . ':!.claude' ':!**/node_modules' ':!**/dist' ':!**/.expo'
-          git diff --cached --quiet || (git commit -m "Döngü $(TZ=Europe/Istanbul date '+%d.%m.%Y %H:%M')" && git push)
+        env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}", MESAJ: "Tur raporu" }
+        run: bash -c "$KAYDET"
