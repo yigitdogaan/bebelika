@@ -98,7 +98,7 @@ Kategori (tek seçim, Hukuk C1-C7 ile birebir, kod ile aynı): C1 Çocuğa ait g
 Alanlar: not (ops., 1000 karakter), [Ayrıca engelle] anahtarı (yalnız sahibi bilinen hedefte), [Gönder] alt sabit, [Vazgeç].
 Durumlar: "Bildirimin alındı. Teşekkürler." (süre sözü yok); tekrar: "Bunu zaten bildirdin." (bilgi, hata değil; 1 şikâyet/nesne); ağ hatası satır içi. Şikâyet eden karşı tarafa açıklanmaz; engellenene bildirim gitmez.
 C3 seçilince: "Acil tehlikede 112'yi ara." (Hukuk §2). "İçeriği hemen gizleriz" gibi taahhüt YAZILMAZ.
-Karar/itiraz (Hukuk §5): S19 Karar bildirimi (ilan sahibine: ihlal türü, [İtiraz et] 14 gün; şikâyet edene ayrıntısız "sonuçlandı"); S20 İtiraz formu. Henüz tasarlanmadı, ayrıntı sonraki tur.
+Karar/itiraz (Hukuk §5): S19 Karar bildirimi (ilan sahibine: ihlal türü, [İtiraz et] 14 gün; şikâyet edene ayrıntısız "sonuçlandı"); S20 İtiraz formu. Ayrıntı: docs/tasarim/s19-s20.md.
 Engellenenler listesi S16 ayarlarında, [Engeli kaldır] tek dokunuş. Engelli kullanıcı keşfet/sohbet listesinden gizlenir (CTO teyidi).
 Yasaklı ürün uyarısı: ilan verirken S9'da (bölüm 6), arama boş sonucunda gerekmez.
 

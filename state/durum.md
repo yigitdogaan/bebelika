@@ -1,6 +1,6 @@
 # Durum
-Döngü: 5
-Faz: Kodlama sürüyor (app/ iskeleti, ilan CRUD/keşfet, şikâyet/engelleme yazıldı)
-Özet: Şikâyet/engelleme migration 0004 + servis + ekran yazıldı; akislar.md v0.2 kodla uyumlandı. npm install/tsc/SQL hâlâ doğrulanmadı (ortamda npm izni yok, psql/supabase CLI yok). Harita ekranı MVP dışı.
-Açık konular: kurucu hesapları (Apple Developer, Google OAuth, Supabase); yerelde `cd app && npm install && npx tsc --noEmit` doğrulaması; mağaza yayın tarihi; influencer/basılı bütçe; dış avukat incelemesi.
-Sıradaki: CTO ilan detay ekranı + bağlama; Selin S19/S20 tasarımı.
+Döngü: 6
+Faz: Kodlama sürüyor (app/: ilan CRUD/keşfet, detay S7, şikâyet/engel yazıldı)
+Özet: İlan detay ekranı + ReportScreen bağlandı; S19/S20 tasarlandı (docs/tasarim/s19-s20.md). npm install/tsc/SQL hâlâ doğrulanmadı (ortamda izin yok). Mesaj butonu S12 yok diye pasif.
+Açık konular: kurucu hesapları (Apple Developer, Google OAuth, Supabase, alan adı); yerelde `cd app && npm install && npx tsc --noEmit`; mağaza yayın tarihi; influencer/basılı bütçe; dış avukat incelemesi; destek e-postası.
+Sıradaki: CTO sohbet ekranı S12 + §14a kalanlar; Hukuk askı/buluşma kararı.

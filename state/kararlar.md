@@ -1,6 +1,7 @@
 # Karar Defteri
 tarih | kim | karar | gerekçe
 2026-10-17 | cto | app/ iskeleti: Expo SDK52 + Supabase (profil, ilan+PostGIS 400m snap, mesaj, rapor/engel, RLS); keşfet girişsiz okunur, yazma doğrulanmış e-posta ister | ONAY-003 sonrası; docs/teknik/mimari.md
+2026-10-17 | cto | S7 ilan detay + ReportScreen bağlantısı, §14a #1-4,#11 uygulandı; sohbet butonu pasif | Mağaza UGC şikâyet girişi şart; sahte işlev yok; docs/teknik/ilan-detay-notu.md
 2026-10-16 | Kerem | MVP kapsamı docs/urun/mvp.md: yalnız elden teslim, İstanbul pilot, F1-F8 içeride; ödeme/öne çıkarma dışarıda, ONAY-002'ye bağlı kararlar açık | Küçük MVP; gelir modeli kurucu kararına kadar ücretsiz varsayım
 2026-10-16 | cto | Expo/RN + TypeScript, Supabase (Postgres/PostGIS) backend; webview elendi | Webview App Store minimum işlevsellik red riski; tek kod tabanı, düşük maliyet, PostGIS geo-arama (docs/teknik/mimari.md)
 2026-10-16 | hukuk (Murat) | Ürün güvenliği + KVKK ön analizi taslağı docs/hukuk/politika.md: MVP'de gıda/sağlık/emzik/kazalı oto koltuğu yasak, konum ilçe düzeyi, 18+ üyelik önerildi | Avukat incelemesi ve kurucu onayı olmadan yayın yok
@@ -18,3 +19,4 @@ tarih | kim | karar | gerekçe
 2026-10-17 | Defne | Pilotta giriş e-posta+Apple/Google, telefon rozeti pilot sonrası (mvp.md/akislar.md) | otp-karar.md ile tutarlılık
 2026-10-17 | Defne | Harita ekranı (S5) MVP'den çıkarıldı; liste+mesafe filtresi yeter; ilan detay ekranı CTO için P1 | Pilotta karmaşıklığı azaltır (Selin önerisi)
 2026-10-17 | Ece | Şikâyet/engel: mevcut reports+blocks genişletildi; sütun bazlı GRANT + trigger ile öncelik ve auto-hide (N=3) | İstemciye güvenilmez; tsc/migration doğrulanamadı (docs/teknik/sikayet-engel-notu.md)
+2026-10-17 | Defne | S19/S20 kabul: itiraz 14 gün, yanıt hedefi 7 gün pilot iç hedef (yasal taahhüt değil), ikinci itiraz yok, destek e-postası alan adı sonrası | Hukuk süreleri teyitsiz; teyit ONAY-004 dış avukatta

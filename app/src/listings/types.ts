@@ -15,6 +15,13 @@ export interface NearbyListing {
   category_id: number; distance_m: number; created_at: string;
   photo_url?: string | null;
 }
+export type ListingStatus = 'aktif' | 'rezerve' | 'verildi' | 'gizli';
+export interface ListingDetail {
+  id: string; title: string | null; description: string | null; price_try: number;
+  condition: Condition; category_id: number; age_min_months: number | null; age_max_months: number | null;
+  status: ListingStatus; created_at: string; seller_id: string;
+  seller_name: string | null; photos: string[];
+}
 export interface ListingInput {
   categoryId: number; priceTry: number; condition: Condition;
   title?: string; description?: string; ageMinMonths?: number; ageMaxMonths?: number;

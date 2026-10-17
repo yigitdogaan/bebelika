@@ -4,6 +4,7 @@ import type { Session } from '@supabase/supabase-js';
 import { supabase } from './src/lib/supabase';
 import { AuthScreen } from './src/auth/AuthScreen';
 import { DiscoverScreen } from './src/listings/DiscoverScreen';
+import { ListingDetailScreen } from './src/listings/ListingDetailScreen';
 import { CreateListingScreen } from './src/listings/CreateListingScreen';
 
 type Tab = 'kesfet' | 'ilan';
@@ -12,6 +13,7 @@ type Tab = 'kesfet' | 'ilan';
 export default function App() {
   const [session, setSession] = useState<Session | null>(null);
   const [tab, setTab] = useState<Tab>('kesfet');
+  const [open, setOpen] = useState<{ id: string; d: number } | null>(null);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => setSession(data.session));
@@ -23,7 +25,9 @@ export default function App() {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
-        {tab === 'kesfet' ? <DiscoverScreen /> : <CreateListingScreen onDone={() => setTab('kesfet')} />}
+        {tab === 'ilan' ? <CreateListingScreen onDone={() => setTab('kesfet')} />
+          : open ? <ListingDetailScreen listingId={open.id} distanceM={open.d} onBack={() => setOpen(null)} />
+          : <DiscoverScreen onOpen={(id, d) => setOpen({ id, d })} />}
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 12 }}>
         <Button title="Keşfet" onPress={() => setTab('kesfet')} />

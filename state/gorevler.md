@@ -19,6 +19,9 @@ Durumlar: [ ] bekliyor · [~] sürüyor · [x] bitti · [!] engelli
 [ ] P1 | cto | npm install + tsc + expo install --fix doğrulaması; migration'ları test Supabase'te dene | kurucu Supabase hesabı
 [x] P2 | cto | Şikâyet/engelleme migration 0004 + servis + ReportScreen (derleme/SQL DOĞRULANMADI)
 [x] P2 | tasarim | akislar.md v0.2 (kod fark listesi §14a)
-[ ] P1 | cto | İlan detay ekranı (S7) + ReportScreen'i bağla + akislar.md §14a düzeltmeleri
-[ ] P2 | tasarim | Karar bildirimi (S19) ve itiraz formu (S20) tasarımı
+[x] P1 | cto | İlan detay S7 + ReportScreen bağlandı (§14a #5,#6,#9,#10,#12 kaldı; derleme DOĞRULANMADI)
+[x] P2 | tasarim | S19/S20 tasarımı → docs/tasarim/s19-s20.md
+[ ] P1 | cto | Sohbet ekranı (S12) + mesajlaşma | S7 bitti
+[ ] P2 | cto | akislar.md §14a kalan maddeler
+[ ] P3 | hukuk | Askıdaki hesabın mevcut buluşmalardaki durumu
 [ ] P2 | cto | Taslak otomatik kayıt, konum rıza ekranı, profil ilçesi

@@ -1,6 +1,6 @@
 import * as ImageManipulator from 'expo-image-manipulator';
 import { supabase } from '../lib/supabase';
-import type { ListingInput, NearbyListing } from './types';
+import type { ListingDetail, ListingInput, NearbyListing } from './types';
 
 const BUCKET = 'listing-photos';
 const MAX_PHOTOS = 6;
@@ -78,6 +78,24 @@ export async function myListings() {
     .order('created_at', { ascending: false });
   if (error) throw error;
   return data;
+}
+
+/** İlan detayı. RLS gizli/kaldırılmış/engelli satıcı ilanını döndürmez -> null. */
+export async function getListing(id: string): Promise<ListingDetail | null> {
+  const { data, error } = await supabase.from('listings')
+    .select('id,title,description,price_try,condition,category_id,age_min_months,age_max_months,status,created_at,seller_id')
+    .eq('id', id).maybeSingle();
+  if (error) throw error;
+  if (!data) return null;
+  const [{ data: ph }, { data: prof }] = await Promise.all([
+    supabase.from('listing_photos').select('storage_path,position').eq('listing_id', id).order('position'),
+    supabase.from('profiles').select('display_name').eq('id', data.seller_id).maybeSingle(),
+  ]);
+  return {
+    ...(data as Omit<ListingDetail, 'seller_name' | 'photos'>),
+    seller_name: prof?.display_name ?? null,
+    photos: (ph ?? []).map((p) => photoPublicUrl(p.storage_path as string)),
+  };
 }
 
 export interface DiscoverFilters {
