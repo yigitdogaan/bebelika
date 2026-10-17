@@ -34,3 +34,9 @@ tarih | kim | karar | gerekçe
 2026-10-17 | Defne | Destek e-postası alan adı alınana kadar yok; kurucu bildirim kanalı #ceo-rapor ve #onay | Alan adı kurucu işi (👤); pilotta ek servis yok
 2026-10-17 | Defne | Biberon pilotta yasak (Kerem önerisi) geçici kabul; sağma pompası ve nihai karar Murat'ta | Hijyen belirsizliği; yasak sonradan gevşetilebilir
 2026-10-17 | Defne | Tur 10 önceliği: demo doğrulama + içerik uyumu (mock seed = demo-veri.md, tarayıcı testi, kategori) | Kurucu önceliği: açılıp gezilebilen ilk sürüm
+2026-10-17 | Ece | 'beslenme' slug'ı korundu, adı Beslenme gereçleri; Alert yerine dialog.ts; Keşfet varsayılan yarıçap 10 km; beyan ilan açıklamasına Satıcı beyanı olarak yazılır | demo-veri.md uyumu; RN-web'de Alert çalışmıyor; pilot ilçeleri ~6 km; şema değişikliği gerektirmesin
+2026-10-17 | Murat | Biberon ve sağma pompası pilotta YASAK; C1 4 saat iç hedef, taahhüt değil; kodda olmayan özellik mağaza metni/SSS'ye yazılmaz | Pompa tıbbi cihaz olabilir; nöbet insan bağımlı; yanıltma ve mağaza red riski
+2026-10-17 | Kerem | Mağazada şimdilik ücretsiz ve İstanbul pilot (Kadıköy/Ataşehir) yazılabilir; demoda sahte satıcı yanıtı yok | ONAY-002 (a) uyumu; aldatıcı olur
+2026-10-17 | Selin | Şeftali yalnız süs/rozet dolgusu, anlam taşıyan öğeler Mürekkep/Nane Koyu | Ölçülen kontrast 2:1
+2026-10-17 | Can | Grup listesi uydurulmadı, manuel doğrulanacak; edinim hedefi kayıt üzerinden (K1 %45/K2 %15/K3 %25/K4 %15, tahmin) | Kapalı gruplar web'de görünmüyor; ücretli kanallar onay bekler
+2026-10-17 | İK | Kurucu bildirim kanalı #ceo-rapor ve #onay; ücretli/hesap maddeleri kurucu işi | CLAUDE.md kuralı

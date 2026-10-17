@@ -16,20 +16,20 @@ Durumlar: [ ] bekliyor · [~] sürüyor · [x] bitti · [!] engelli
 [x] P2 | urun | mvp.md F1 SMS kodu düzeltildi (akislar.md de güncellendi)
 [x] P2 | hukuk | Moderasyon süreci taslağı → docs/hukuk/moderasyon.md
 [x] P3 | hukuk | Dış avukat incelemesi paketi (yayın öncesi) | ONAY-004 ✔ (paket hazır; avukat seçimi kurucuda)
-[ ] P1 | cto | npm install + tsc + expo install --fix doğrulaması; migration'ları test Supabase'te dene | kurucu Supabase hesabı
+[ ] P1 | cto | Migration'ları (0001-0007) test Supabase'te dene | kurucu Supabase hesabı (npm install + tsc tamam)
 [x] P2 | cto | Şikâyet/engelleme migration 0004 + servis + ReportScreen (derleme/SQL DOĞRULANMADI)
 [x] P2 | tasarim | akislar.md v0.2 (kod fark listesi §14a)
-[x] P1 | cto | İlan detay S7 + ReportScreen bağlandı (§14a #5,#6,#9,#10,#12 kaldı; derleme DOĞRULANMADI)
+[x] P1 | cto | İlan detay S7 + ReportScreen bağlandı
 [x] P2 | tasarim | S19/S20 tasarımı → docs/tasarim/s19-s20.md
-[x] P1 | cto | Sohbet ekranı (S12) + mesajlaşma (migration 0005; derleme/SQL DOĞRULANMADI)
+[x] P1 | cto | Sohbet ekranı (S12) + mesajlaşma (migration 0005; SQL DOĞRULANMADI)
 [x] P2 | cto | moderasyon.md §9 K8: migration 0006 hesap durumu + mesaj engeli (SQL DOĞRULANMADI)
 [x] P2 | cto | Gelen kutusu ekranı (tsc/web export temiz)
-[ ] P3 | cto | Push (Apple hesabı gerekir), buluşma öner/foto, K2 sistem mesajı, moderasyon paneli (mock veri modu bitti)
-[ ] P2 | cto | akislar.md §14a kalan maddeler (#5,#6,#9,#10,#12)
+[ ] P3 | cto | Push (Apple hesabı gerekir), buluşma öner/foto, K2 sistem mesajı, moderasyon paneli
+[~] P2 | cto | akislar.md §14a: #5,#9,#10 bitti; #6 filtre sayfası, #12 S19/S20 + engellenenler kaldı
 [x] P3 | hukuk | Askıdaki hesap/buluşma kuralı → moderasyon.md §9
-[ ] P2 | cto | Taslak otomatik kayıt, konum rıza ekranı, profil ilçesi
+[~] P2 | cto | Konum rıza ekranı ve profil ilçesi bitti; taslak otomatik kayıt kaldı
 
-## Döngü 9 (kurucu önceliği: telefonda/web'de açılan, örnek verili ilk sürüm) — tamamlandı
+## Döngü 9 — tamamlandı
 [x] P1 | cto | Mock veri modu → app/src/lib/mock/, docs/teknik/mock-notu.md
 [x] P1 | cto | Statik web yayını + demo README (5 adım) → app/README.md, app/vercel.json
 [x] P1 | tasarim | Demo örnek veri seti → docs/tasarim/demo-veri.md
@@ -53,28 +53,38 @@ Durumlar: [ ] bekliyor · [~] sürüyor · [x] bitti · [!] engelli
 [x] P3 | ik | Çalışma düzeni şablonları → docs/ik/calisma-duzeni.md
 [x] P3 | ik | Kurucu listesi → docs/ik/kurucu-listesi.md
 
-## Döngü 10 (kurucu önceliği: açılıp gezilebilen, örnek verili ilk sürüm — doğrulama + içerik uyumu)
-[ ] P1 | cto | Mock seed'i Selin'in demo-veri.md'sine göre güncelle; yer tutucu foto | demo-veri.md hazır
-[ ] P1 | cto | Tarayıcıda elle gezinme testi (demo-senaryo.md adımlarıyla), bulguları docs/teknik/ altına yaz
-[ ] P2 | cto | Kategori migration (4 yeni slug), ilan kaynak etiketi, UTM/davet kodu alanı; aydınlatma tablosu-şema karşılaştırması (Murat'a)
-[ ] P2 | cto | Konum rıza ekranı ve hesap silme akışı (SSS S13/S15 buna bağlı); akislar.md §14a kalanlar (#5,#6,#9,#10,#12)
-[ ] P1 | tasarim | Demo gezinti ekran görüntüleri (scripts/ekran.cjs) → docs/tasarim/ekranlar/; görsel kalite kontrolü
-[ ] P2 | tasarim | Kontrast ölçümü (marka.md paleti) → docs/tasarim/kontrast.md
-[ ] P2 | tasarim | S13/S14/S15 detay ekranları (konum rıza, hesap silme, profil)
+## Döngü 10 (demo doğrulama + içerik uyumu) — tamamlandı
+[x] P1 | cto | Mock seed demo-veri.md'ye eşlendi → app/src/lib/mock/, docs/teknik/mock-notu.md
+[x] P1 | cto | Tarayıcı gezinti testi 24/24 → docs/teknik/gezinti-testi.md
+[x] P2 | cto | Migration 0007, kaynak/davet kodu alanı, aydınlatma-şema karşılaştırması
+[~] P2 | cto | Konum rıza + hesap silme bitti; §14a #6 ve #12 kaldı
+[~] P1 | tasarim | Demo ekran görüntüleri — giriş dışı ekranlar için demo girişi adımı yok
+[x] P2 | tasarim | Kontrast ölçümü → docs/tasarim/kontrast.md
+[x] P2 | tasarim | Konum rıza, hesap silme, profil tasarımı → docs/tasarim/konum-silme-profil.md
 [ ] P3 | tasarim | Mağaza ekran görüntüsü planı (Can ile) → docs/tasarim/magaza-ekranlari.md
-[ ] P1 | urun | mvp.md kategori güncellemesi (10 ana kategori); demo-senaryo.md'yi mock seed'e eşle
-[ ] P2 | urun | F5/F6 kabul kriterlerini mock'a göre yaz; Can'a "ücretsiz/pilot bölge" cevabı (#genel)
-[ ] P2 | urun | Demo geri bildirim soruları → docs/urun/demo-geri-bildirim.md
-[ ] P3 | urun | Backlog RICE'ı demo bulgularına göre güncelle
-[ ] P2 | hukuk | Topluluk Kuralları metni, S19/S20 kullanıcı metinleri → docs/hukuk/
-[ ] P2 | hukuk | Biberon ve sağma pompası kararı (Kerem'in yasak önerisine teyit/itiraz)
-[ ] P2 | hukuk | Buluşma ipuçları / mağaza metni / SSS ifade kontrolü; C1 SLA teyidi
-[ ] P3 | hukuk | Mağaza veri formları ve saklama-imha politikası taslağı
-[ ] P2 | pazarlama | Kadıköy/Ataşehir grup listesi ve izin mesajı taslağı → docs/pazarlama/
-[ ] P3 | pazarlama | Hafta 4 kanal bazlı edinim hedefi (pilot-esikler.md açık soru 1)
-[ ] P2 | pazarlama | Demo tanıtım metni: kurucunun paylaşabileceği kısa "demoyu dene" mesajı
-[ ] P3 | pazarlama | Marka/alan adı alternatifleri ve kontrol listesi (kurucu onayı için)
-[ ] P2 | ik | Destek e-postası/kurucu bildirim kanalı kararını destek-plani.md'ye işle
-[ ] P3 | ik | Pilot başlangıç kontrol listesi → docs/ik/pilot-baslangic.md
-[ ] P3 | ik | kurucu-listesi.md güncelle (Vercel demo, Supabase, avukat vb. sıralı)
-[ ] P3 | ik | Döngü 10 sonrası kuyruk/verim notu → docs/ik/
+[x] P1 | urun | mvp.md 10 kategori; demo-senaryo.md seed eşlemesi
+[x] P2 | urun | F5/F6 kabul kriterleri; Can'a ücretsiz/pilot bölge cevabı
+[x] P2 | urun | Demo geri bildirim soruları → docs/urun/demo-geri-bildirim.md
+[~] P3 | urun | Backlog RICE güncellemesi | kurucu demo geri bildirimi
+[x] P2 | hukuk | Topluluk Kuralları + S19/S20 metinleri → docs/hukuk/topluluk-kurallari.md
+[x] P2 | hukuk | Biberon ve pompa kararı → docs/hukuk/biberon-pompa-karari.md
+[x] P2 | hukuk | İfade kontrolü + C1 SLA teyidi → docs/hukuk/ifade-kontrolu.md
+[x] P3 | hukuk | Mağaza veri formları + saklama-imha → docs/hukuk/magaza-ve-saklama.md
+[x] P2 | pazarlama | Grup listesi şablonu + izin mesajı → docs/pazarlama/grup-izin.md
+[x] P3 | pazarlama | Hafta 4/8 edinim hedefi → docs/pazarlama/edinim-hedefi.md
+[x] P2 | pazarlama | Demo tanıtım metni → docs/pazarlama/demo-tanitim.md
+[~] P3 | pazarlama | Marka/alan adı alternatifleri | alan adı müsaitliği kurucu kontrolü
+[x] P2 | ik | Destek e-postası/kurucu kanalı kararı → destek-plani.md
+[x] P3 | ik | Pilot başlangıç kontrol listesi → docs/ik/pilot-baslangic.md
+[x] P3 | ik | kurucu-listesi.md v0.2
+[x] P3 | ik | Kuyruk/verim notu → docs/ik/kuyruk-verim.md
+
+## Döngü 11 (öneriler)
+[ ] P1 | cto | §14a #6 filtre sayfası, #12 S19/S20 + engellenenler listesi (docs/hukuk/topluluk-kurallari.md metinleri)
+[ ] P1 | tasarim | ekran.cjs demo giriş adımı; Keşfet, ilan kartı, detay, sohbet, ilan ver ekranlarını yeni tasarım sistemine geçir; ekran görüntüleri → docs/tasarim/ekranlar/
+[ ] P2 | cto | vector-icons ekle (sekme ikonları); sıralama formülünü nearby_listings SQL içine ekle; taslak otomatik kayıt; yetim Storage temizliği
+[ ] P2 | cto | Murat: reports.reporter_id SET NULL + silme işi + aydınlatma tablosu ekleri
+[ ] P2 | urun | kategoriler.md: beslenme adı ve 11 kategori birleştirme kararı (Selin ile)
+[ ] P2 | pazarlama | Murat ifade-kontrolu.md düzeltmeleri (Can/Selin); grup listesi manuel doğrulama
+[ ] P3 | hukuk | sozlesme-taslak 3y/2y saklama çelişkisi; geri çağırma kaynak listesi doğrulaması
+[ ] P3 | urun | Pilot ilk 100 ilan arz planı + Can grup listesi birleştirme
