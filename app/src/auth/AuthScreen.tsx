@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Button, Platform, StyleSheet, Text, TextInput, View } from 'react-native';
+import { MOCK } from '../lib/supabase';
 import { signInApple, signInEmail, signInGoogle, signUpEmail } from './signIn';
 
 type Result = { error: { message: string } | null };
@@ -22,6 +23,12 @@ export function AuthScreen() {
       <Text style={s.t}>Bebelika</Text>
       <TextInput style={s.i} placeholder="E-posta" autoCapitalize="none" keyboardType="email-address" value={email} onChangeText={setEmail} />
       <TextInput style={s.i} placeholder="Şifre (en az 8)" secureTextEntry value={password} onChangeText={setPassword} />
+      {MOCK && (
+        <>
+          <Text style={{ textAlign: 'center', color: '#666' }}>Demo sürüm: örnek verilerle çalışır, gerçek hesap yok.</Text>
+          <Button title="Demo olarak gir" onPress={() => run(() => signInEmail('demo@bebelika.test', 'demo-demo'))} />
+        </>
+      )}
       <Button title="Giriş yap" onPress={() => run(() => signInEmail(email, password))} />
       <Button
         title="Kayıt ol"
