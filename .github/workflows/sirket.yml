@@ -2,7 +2,7 @@ name: Bebelika Şirket Döngüsü
 
 on:
   schedule:
-    - cron: "0 6-18/2 * * *"   # İstanbul 09:00-21:00, 2 saatte bir
+    - cron: "17 6-18 * * *"   # İstanbul saatiyle 09:17-21:17 arası, her saat
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ concurrency:
 jobs:
   dongu:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     env:
       SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1"
@@ -36,12 +36,26 @@ jobs:
           prompt: |
             prompts/ceo-dongu.md dosyasını oku ve oradaki iş döngüsünü eksiksiz uygula.
             Tarih/saat için `date -u` kullan; İstanbul saati = UTC+3.
-            Döngü HER ZAMAN #ceo-rapor'a rapor göndererek biter. Bir adım hata verirse atla, devam et ve hatayı raporda yaz.
-            Alt-agent'ları ASLA arka planda başlatma; her birini sonucunu bekleyerek sırayla çağır. Bu süreç tur bitince kapanır, sonradan bildirim gelmez.
+            Alt-agent'ları ASLA arka planda başlatma; her birini sonucunu bekleyerek sırayla çağır.
+            Döngü HER ZAMAN #ceo-rapor'a rapor göndererek biter.
           claude_args: >-
             --model sonnet
-            --max-turns 40
+            --max-turns 60
             --allowedTools "Read,Write,Edit,Glob,Grep,Task,WebSearch,WebFetch,Bash(python3 scripts/slack.py:*),Bash(date:*)"
+
+      - name: Ofis panosunu sıfırla
+        if: always()
+        run: |
+          python3 - <<'PY' || true
+          import json
+          p = "state/ekip.json"
+          e = json.load(open(p, encoding="utf-8"))
+          if any(k.get("durum") == "aktif" for k in e.values()):
+              for k in e.values():
+                  k["durum"], k["is"] = "bosta", ""
+              json.dump(e, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+              import subprocess; subprocess.run(["python3", "scripts/slack.py", "durum", "ceo", "bosta"])
+          PY
 
       - name: Şirket hafızasını kaydet
         if: always()
