@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Alert, Button, Platform, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, Platform, StyleSheet, Text, View } from 'react-native';
 import { MOCK } from '../lib/supabase';
+import { Button } from '../ui/Button';
+import { TextField } from '../ui/TextField';
+import { bosluk, renk, yaricap, yazi } from '../ui/theme';
 import { signInApple, signInEmail, signInGoogle, signUpEmail } from './signIn';
 
 type Result = { error: { message: string } | null };
@@ -20,18 +23,22 @@ export function AuthScreen() {
 
   return (
     <View style={s.c}>
-      <Text style={s.t}>Bebelika</Text>
-      <TextInput style={s.i} placeholder="E-posta" autoCapitalize="none" keyboardType="email-address" value={email} onChangeText={setEmail} />
-      <TextInput style={s.i} placeholder="Şifre (en az 8)" secureTextEntry value={password} onChangeText={setPassword} />
+      <View style={s.ust}>
+        <Text style={s.marka}>Bebelika</Text>
+        <Text style={[yazi.govde, s.slogan]}>Bebek ve anne ürünleri, mahallenden elden teslim.</Text>
+      </View>
       {MOCK && (
-        <>
-          <Text style={{ textAlign: 'center', color: '#666' }}>Demo sürüm: örnek verilerle çalışır, gerçek hesap yok.</Text>
-          <Button title="Demo olarak gir" onPress={() => run(() => signInEmail('demo@bebelika.test', 'demo-demo'))} />
-        </>
+        <View style={s.demo}>
+          <Text style={s.demoMetin}>Demo sürüm: örnek verilerle çalışır, gerçek hesap yok.</Text>
+          <Button baslik="Demo olarak gir" onPress={() => run(() => signInEmail('demo@bebelika.test', 'demo-demo'))} />
+        </View>
       )}
-      <Button title="Giriş yap" onPress={() => run(() => signInEmail(email, password))} />
+      <TextField placeholder="E-posta" autoCapitalize="none" keyboardType="email-address" value={email} onChangeText={setEmail} />
+      <TextField placeholder="Şifre (en az 8 karakter)" secureTextEntry value={password} onChangeText={setPassword} />
+      <Button baslik="Giriş yap" tur={MOCK ? 'ikincil' : 'birincil'} onPress={() => run(() => signInEmail(email, password))} />
       <Button
-        title="Kayıt ol"
+        baslik="Kayıt ol"
+        tur="metin"
         onPress={() =>
           run(async () => {
             const r = await signUpEmail(email, password);
@@ -40,14 +47,19 @@ export function AuthScreen() {
           })
         }
       />
-      {Platform.OS === 'ios' && <Button title="Apple ile devam et" onPress={() => run(signInApple)} />}
-      <Button title="Google ile devam et" onPress={() => run(signInGoogle)} />
+      <Text style={[yazi.yardimci, s.veya]}>veya</Text>
+      {Platform.OS === 'ios' && <Button baslik="Apple ile devam et" tur="ikincil" onPress={() => run(signInApple)} />}
+      <Button baslik="Google ile devam et" tur="ikincil" onPress={() => run(signInGoogle)} />
     </View>
   );
 }
 
 const s = StyleSheet.create({
-  c: { flex: 1, justifyContent: 'center', padding: 24, gap: 12 },
-  t: { fontSize: 28, fontWeight: '700', textAlign: 'center' },
-  i: { borderWidth: 1, borderColor: '#ccc', borderRadius: 8, padding: 12 },
+  c: { flex: 1, justifyContent: 'center', padding: bosluk.l, gap: bosluk.m, backgroundColor: renk.zemin },
+  ust: { alignItems: 'center', gap: bosluk.s, marginBottom: bosluk.m },
+  marka: { ...yazi.baslik1, fontSize: 36, lineHeight: 42, color: renk.anaKoyu },
+  slogan: { textAlign: 'center', color: renk.metinIkincil },
+  demo: { backgroundColor: renk.naneAcik, borderRadius: yaricap.l, padding: bosluk.m, gap: bosluk.s },
+  demoMetin: { ...yazi.yardimci, color: renk.metin, textAlign: 'center' },
+  veya: { textAlign: 'center' },
 });

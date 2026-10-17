@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button, View } from 'react-native';
+import { View } from 'react-native';
+import { TabBar } from './src/ui/TabBar';
 import type { Session } from '@supabase/supabase-js';
 import { supabase } from './src/lib/supabase';
 import { AuthScreen } from './src/auth/AuthScreen';
@@ -36,12 +37,14 @@ export default function App() {
           : tab === 'mesaj' ? <InboxScreen onOpen={(id) => setChat(id)} />
           : <DiscoverScreen onOpen={(id, d) => setOpen({ id, d })} />}
       </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 12 }}>
-        <Button title="Keşfet" onPress={() => { setChat(null); setOpen(null); setTab('kesfet'); }} />
-        <Button title="Mesajlar" onPress={() => { setChat(null); setOpen(null); setTab('mesaj'); }} />
-        <Button title="İlan ver" onPress={() => setTab('ilan')} />
-        <Button title="Çıkış" onPress={() => supabase.auth.signOut()} />
-      </View>
+      <TabBar
+        sekmeler={[
+          { anahtar: 'kesfet', baslik: 'Keşfet', secili: tab === 'kesfet', onPress: () => { setChat(null); setOpen(null); setTab('kesfet'); } },
+          { anahtar: 'mesaj', baslik: 'Mesajlar', secili: tab === 'mesaj', onPress: () => { setChat(null); setOpen(null); setTab('mesaj'); } },
+          { anahtar: 'ilan', baslik: 'İlan ver', secili: tab === 'ilan', onPress: () => setTab('ilan') },
+          { anahtar: 'cikis', baslik: 'Çıkış', secili: false, onPress: () => { supabase.auth.signOut(); } },
+        ]}
+      />
     </View>
   );
 }
