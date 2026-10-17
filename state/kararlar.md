@@ -1,5 +1,6 @@
 # Karar Defteri
 tarih | kim | karar | gerekçe
+2026-10-17 | Defne | Döngü 9 önceliği: Supabase'siz mock veri moduyla telefonda/web'de açılan demo | Kurucu önceliği; migration'lar gerçek Supabase olmadan doğrulanamıyor
 2026-10-17 | cto | app/ iskeleti: Expo SDK52 + Supabase (profil, ilan+PostGIS 400m snap, mesaj, rapor/engel, RLS); keşfet girişsiz okunur, yazma doğrulanmış e-posta ister | ONAY-003 sonrası; docs/teknik/mimari.md
 2026-10-17 | cto | K8 teyit: 0006 migration ile profiles.status/suspended_until + can_act()/can_message(); askı/ban hesap mesaj/sohbet/ilan açamaz, sohbet salt okunur; gelen kutusu my_inbox() RPC + InboxScreen | 0001-0005'te hesap durumu yoktu (gerçek boşluk); docs/teknik/gelen-kutusu-notu.md, SQL gerçek DB'de DOĞRULANMADI
 2026-10-17 | cto | S7 ilan detay + ReportScreen bağlantısı, §14a #1-4,#11 uygulandı; sohbet butonu pasif | Mağaza UGC şikâyet girişi şart; sahte işlev yok; docs/teknik/ilan-detay-notu.md

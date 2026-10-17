@@ -28,3 +28,28 @@ Durumlar: [ ] bekliyor · [~] sürüyor · [x] bitti · [!] engelli
 [ ] P2 | cto | akislar.md §14a kalan maddeler
 [x] P3 | hukuk | Askıdaki hesap/buluşma kuralı → moderasyon.md §9
 [ ] P2 | cto | Taslak otomatik kayıt, konum rıza ekranı, profil ilçesi
+
+## Döngü 9 kuyruğu (kurucu önceliği: telefonda/web'de açılan, örnek verili ilk sürüm)
+[ ] P1 | cto | Mock veri modu: Supabase'siz, örnek ilan/sohbet/profil verisiyle web export çalışsın → app/ + docs/teknik/mock-notu.md
+[ ] P1 | cto | Web export'u statik yayınlanabilir yap + "demo nasıl açılır" README (kurucu için 5 adım)
+[ ] P2 | cto | akislar.md §14a kalan maddeler (#5,#6,#9,#10,#12)
+[ ] P1 | tasarim | Demo örnek veri seti: 12 gerçekçi ilan (kategori/fiyat/ilçe), 3 sohbet senaryosu → docs/tasarim/demo-veri.md (Ece mock için kullanır)
+[ ] P2 | tasarim | Boş durum, hata, yükleniyor ekranları → docs/tasarim/bos-durumlar.md
+[ ] P2 | tasarim | Marka rehberi v1 (renk, tipografi, logo yönü, ton) → docs/tasarim/marka.md
+[ ] P3 | tasarim | Güvenli buluşma ipuçları ekranı içeriği → docs/tasarim/bulusma-ipuclari.md
+[ ] P1 | urun | Demo gezinti senaryosu: kurucunun 5 dk'da göreceği akış, kabul kriterleri → docs/urun/demo-senaryo.md
+[ ] P2 | urun | Kategori ağacı + ürün güvenliği kuralları (araba koltuğu, pompa vb.) → docs/urun/kategoriler.md
+[ ] P2 | urun | Pilot ilçe seçimi ve ilk 100 ilan arz planı → docs/urun/pilot-arz.md
+[ ] P3 | urun | Sonraki sürüm backlog sıralaması (RICE) → docs/urun/backlog.md
+[ ] P2 | hukuk | Dış avukat incelemesi paketi (belge listesi, sorular) → docs/hukuk/avukat-paketi.md | ONAY-004 ✔
+[ ] P2 | hukuk | Riskli ürün kategorileri uyarı metni → docs/hukuk/riskli-urunler.md
+[ ] P2 | hukuk | Kullanıcı sözleşmesi ve aydınlatma metni TASLAĞI → docs/hukuk/sozlesme-taslak.md
+[ ] P3 | hukuk | Öne çıkarma ücreti tüketici hukuku notu (ONAY-002 a) → docs/hukuk/one-cikarma.md
+[ ] P2 | pazarlama | Slogan/ton önerisi + mağaza listeleme metni taslağı (TR) → docs/pazarlama/magaza-metni.md
+[ ] P2 | pazarlama | İstanbul pilot lansman planı → docs/pazarlama/lansman.md
+[ ] P2 | pazarlama | Güven odaklı mesajlar ve SSS → docs/pazarlama/sss.md
+[ ] P3 | pazarlama | Bütçeli kanallar için seçenek listesi → docs/pazarlama/butce.md
+[ ] P2 | ik | Yeni rol analizi (QA/destek/moderatör); öneri varsa #onay → docs/ik/kadro.md
+[ ] P2 | ik | Pilot destek/moderasyon vardiya ve SLA planı → docs/ik/destek-plani.md
+[ ] P3 | ik | Çalışma düzeni ve teslim notu şablonları → docs/ik/calisma-duzeni.md
+[ ] P3 | ik | Kurucu "Senin yapman gerekenler" listesi (hesaplar, alan adı, mağaza) → docs/ik/kurucu-listesi.md
