@@ -18,12 +18,16 @@ concurrency:
 jobs:
   dongu:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     env:
       SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1"
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - name: Ekibi işe başlat
         run: mkdir -p .claude/agents && cp ekip/*.md .claude/agents/
@@ -41,7 +45,7 @@ jobs:
           claude_args: >-
             --model sonnet
             --max-turns 60
-            --allowedTools "Read,Write,Edit,Glob,Grep,Task,WebSearch,WebFetch,Bash(python3 scripts/slack.py:*),Bash(date:*)"
+            --allowedTools "Read,Write,Edit,Glob,Grep,Task,WebSearch,WebFetch,Bash(python3 scripts/slack.py:*),Bash(date:*),Bash(cd:*),Bash(ls:*),Bash(npm:*),Bash(npx:*),Bash(node:*)"
 
       - name: Ofis panosunu sıfırla
         if: always()
@@ -66,5 +70,5 @@ jobs:
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
           git config user.name "bebelika-ofis"
           git config user.email "ofis@bebelika.local"
-          git add -A -- . ':!.claude'
+          git add -A -- . ':!.claude' ':!**/node_modules' ':!**/dist' ':!**/.expo'
           git diff --cached --quiet || (git commit -m "Döngü $(TZ=Europe/Istanbul date '+%d.%m.%Y %H:%M')" && git push)
