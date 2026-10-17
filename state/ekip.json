@@ -1,65 +1,9 @@
 {
-  "ceo": {
-    "ad": "Defne",
-    "unvan": "CEO",
-    "emoji": "💼",
-    "ikon": ":briefcase:",
-    "ust": "kurucu",
-    "durum": "bosta",
-    "is": ""
-  },
-  "urun": {
-    "ad": "Kerem",
-    "unvan": "Ürün",
-    "emoji": "📦",
-    "ikon": ":package:",
-    "ust": "ceo",
-    "durum": "bosta",
-    "is": ""
-  },
-  "tasarim": {
-    "ad": "Selin",
-    "unvan": "Tasarım",
-    "emoji": "🎨",
-    "ikon": ":art:",
-    "ust": "urun",
-    "durum": "bosta",
-    "is": ""
-  },
-  "cto": {
-    "ad": "Ece",
-    "unvan": "CTO",
-    "emoji": "💻",
-    "ikon": ":computer:",
-    "ust": "ceo",
-    "durum": "bosta",
-    "is": ""
-  },
-  "hukuk": {
-    "ad": "Murat",
-    "unvan": "Hukuk",
-    "emoji": "⚖️",
-    "ikon": ":scales:",
-    "ust": "ceo",
-    "durum": "bosta",
-    "is": ""
-  },
-  "pazarlama": {
-    "ad": "Can",
-    "unvan": "Pazarlama",
-    "emoji": "📣",
-    "ikon": ":mega:",
-    "ust": "ceo",
-    "durum": "bosta",
-    "is": ""
-  },
-  "ik": {
-    "ad": "Zeynep",
-    "unvan": "İK",
-    "emoji": "🤝",
-    "ikon": ":handshake:",
-    "ust": "ceo",
-    "durum": "bosta",
-    "is": ""
-  }
+  "ceo": {"ad": "Defne", "unvan": "CEO", "emoji": "💼", "ikon": ":briefcase:", "ust": "kurucu", "durum": "bosta", "is": ""},
+  "urun": {"ad": "Kerem", "unvan": "Ürün", "emoji": "📦", "ikon": ":package:", "ust": "ceo", "durum": "bosta", "is": ""},
+  "tasarim": {"ad": "Selin", "unvan": "Tasarım", "emoji": "🎨", "ikon": ":art:", "ust": "urun", "durum": "bosta", "is": ""},
+  "cto": {"ad": "Ece", "unvan": "CTO", "emoji": "💻", "ikon": ":computer:", "ust": "ceo", "durum": "bosta", "is": ""},
+  "hukuk": {"ad": "Murat", "unvan": "Hukuk", "emoji": "⚖️", "ikon": ":scales:", "ust": "ceo", "durum": "bosta", "is": ""},
+  "pazarlama": {"ad": "Can", "unvan": "Pazarlama", "emoji": "📣", "ikon": ":mega:", "ust": "ceo", "durum": "bosta", "is": ""},
+  "ik": {"ad": "Zeynep", "unvan": "İK", "emoji": "🤝", "ikon": ":handshake:", "ust": "ceo", "durum": "bosta", "is": ""}
 }

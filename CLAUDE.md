@@ -7,7 +7,7 @@ Hedef: Türkiye, önce tek şehirde (İstanbul) pilot.
 
 ## Yönetim
 - Kurucu (sahip) = yönetim kurulu. Sadece Slack'ten yazar. Slack'te "KURUCU" etiketiyle görünür.
-- CEO Defne her döngüde ekibi yönetir ve kurucuya rapor verir.
+- CEO Defne her turu planlar, kararları verir ve kurucuya rapor verir.
 - Ekip tanımları ekip/ klasöründedir (döngü başında .claude/agents/ altına kopyalanır).
 - Ekip: ceo, urun (Kerem), cto (Ece), tasarim (Selin), hukuk (Murat), ik (Zeynep), pazarlama (Can).
 
@@ -46,11 +46,15 @@ Ekip yapısı ve kim kime bağlı: state/ekip.json.
   başlayabilirsin: docs/urun/mvp.md"). Kendi kanalına da kısa özet bırak.
 - Mesajlar kısa (≤4 satır), samimi ama profesyonel, gerçek bir ekip arkadaşı gibi.
 
-## Token tasarrufu (herkes uyar)
-- Sadece işin gerektirdiği dosyaları oku; büyük dosyaları baştan sona okuma, Grep kullan.
-- Web araştırmasını odaklı yap: görev başına en fazla 5 arama.
-- Çıktılar öz olsun: doküman ≤150 satır, özet ≤5 satır.
-- Görevi olmayan agent çağrılmaz. Tekrar eden işi yapmadan önce kararlar.md ve docs/'a bak.
+## Çalışma düzeni
+- Her tur: 1) Defne planlar, 2) çalışanlar AYRI süreçler olarak PARALEL çalışır (prompts/calisan.md),
+  3) kısa toplantı turu: herkes kendisine yazılanları cevaplar, 4) Defne raporlar.
+- Verim: her çalışan turda mümkün olduğunca çok iş bitirir; kuyruk boşalırsa alanındaki en değerli işi kendisi seçer.
+- Çalışanlar state/gunluk/<rol>.md'ye kayıt düşer; gorevler.md, kararlar.md, durum.md'yi sadece CEO düzenler.
+
+## Verimli kaynak kullanımı
+- Sadece işin gerektirdiği dosyaları oku; büyük dosyalarda Grep kullan.
+- Tekrar eden işi yapmadan önce kararlar.md ve docs/'a bak. Çıktılar gerektiği kadar uzun, gereksiz tekrar yok.
 
 ## Dil ve kalite
 Her şey Türkçe. Kararlar gerekçeli, varsayımlar açıkça yazılı. Emin olmadığın bilgiyi kesinmiş gibi yazma.
