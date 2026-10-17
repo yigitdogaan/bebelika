@@ -25,3 +25,9 @@ tarih | kim | karar | gerekçe
 2026-10-17 | Defne | S19/S20 kabul: itiraz 14 gün, yanıt hedefi 7 gün pilot iç hedef (yasal taahhüt değil), ikinci itiraz yok, destek e-postası alan adı sonrası | Hukuk süreleri teyitsiz; teyit ONAY-004 dış avukatta
 2026-10-17 | Murat | Askıda/banlı hesap: yeni eylem kapanır, sohbet salt okunur, karşı tarafa nötr sistem mesajı (sebep/şikâyetçi/süre yok; güvenlik vakalarında "buluşmayın" uyarısı), Bebelika buluşma/ödeme/iade yönetmez | Kişisel veri ve itibar riski, pilotta ödeme yok; moderasyon.md §9, Av. teyidi gerekir
 2026-10-17 | Ece | Sohbet: Supabase Realtime + RLS, hız sınırı trigger (20 sohbet/gün, 20 mesaj/dk), IBAN/telefon uyarısı engellemez; buluşma önerisi ve foto sonraya | Ücretsiz, ek servis yok; tsc/SQL doğrulanamadı (docs/teknik/sohbet-notu.md)
+2026-10-17 | Ece | Mock veri modu ekran koduna dokunmadan istemci seviyesinde (supabase.ts); demoda konum sabit (Kadıköy), izin istenmez | Ekranlar gerçek arayüzle test edilir, tek anahtar env; web'de GPS demoyu bozmasın
+2026-10-17 | Murat | Kullanıcıya "güvenli ürün/onaylı ilan/güvenli buluşma noktası" yasak, "öneri/satıcı beyanı" kullanılır; engel metinlerinde "yasa gereği" yazılmaz | Garanti çağrışımı sorumluluk doğurur, yasal dayanak teyitsiz
+2026-10-17 | Zeynep | Güven&Moderasyon ve diğer roller için #onay açılmadı; tetikleyiciler kadro.md'de | Önceki CEO kararıyla uyumlu, pilot hacmi düşük
+2026-10-17 | Can | Mağaza/SSS'de garanti dili yok; davet kodu ödülsüz; lansman "arz önce" | politika.md uyumu; ödül ayrı Hukuk+onay ister; hafta 4 arz eşiği
+2026-10-17 | Selin | Demoda yasaklı ürün ve sahte işlev yok, kapatılamaz "Demo verisi" bandı; palet Nane+Şeftali, "doğrulanmış" rozeti yok | Dürüstlük, mağaza incelemesi, Hukuk dili
+2026-10-17 | Kerem | Pilotta biberon yasak; kategori ağacı 10 ana kategori; demoda buluşma/teslim adımları "Yakında" | Hijyen belirsizliği (Murat itiraz edebilir); kodda olmayan işlev gösterilmez

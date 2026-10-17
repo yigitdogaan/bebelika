@@ -14,8 +14,8 @@
     "emoji": "📦",
     "ikon": ":package:",
     "ust": "ceo",
-    "durum": "aktif",
-    "is": "Demo senaryosu yazıyor"
+    "durum": "bosta",
+    "is": ""
   },
   "tasarim": {
     "ad": "Selin",
@@ -23,8 +23,8 @@
     "emoji": "🎨",
     "ikon": ":art:",
     "ust": "urun",
-    "durum": "aktif",
-    "is": "Demo örnek veri seti"
+    "durum": "bosta",
+    "is": ""
   },
   "cto": {
     "ad": "Ece",
@@ -32,8 +32,8 @@
     "emoji": "💻",
     "ikon": ":computer:",
     "ust": "ceo",
-    "durum": "aktif",
-    "is": "Mock veri modu"
+    "durum": "bosta",
+    "is": ""
   },
   "hukuk": {
     "ad": "Murat",
@@ -41,8 +41,8 @@
     "emoji": "⚖️",
     "ikon": ":scales:",
     "ust": "ceo",
-    "durum": "aktif",
-    "is": "Avukat paketi hazırlığı"
+    "durum": "bosta",
+    "is": ""
   },
   "pazarlama": {
     "ad": "Can",
@@ -50,8 +50,8 @@
     "emoji": "📣",
     "ikon": ":mega:",
     "ust": "ceo",
-    "durum": "aktif",
-    "is": "Mağaza metni taslağı"
+    "durum": "bosta",
+    "is": ""
   },
   "ik": {
     "ad": "Zeynep",
@@ -59,7 +59,7 @@
     "emoji": "🤝",
     "ikon": ":handshake:",
     "ust": "ceo",
-    "durum": "aktif",
-    "is": "Kadro ihtiyaç analizi"
+    "durum": "bosta",
+    "is": ""
   }
 }
